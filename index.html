@@ -960,6 +960,125 @@ tbody td{padding:17px 16px}tbody tr.linha-clicavel:hover{background:#fcf6f8}
 #filtro-eixo,#filtro-modalidade{display:none!important}
 @media(max-width:850px){.sidebar{background:#211a25}.conteudo{padding:20px 16px}.topbar{padding:15px 18px}}
 </style>
+
+<style>
+/* EDITORIAL V3 — RECONSTRUÇÃO DO DESIGN SYSTEM */
+:root{--fpbf-bg:#f6f5f3;--fpbf-sidebar:#fefdfb;--fpbf-primary:#81243c;--fpbf-primary-dark:#651b30;--fpbf-border:#e8e4df;--fpbf-text:#242329;--fpbf-muted:#797781;--fpbf-radius:17px}
+html{scroll-behavior:smooth}
+body{background:#f6f5f3}
+#app.visivel{background:#f6f5f3}
+.sidebar{width:256px;background:#fff;border-right:1px solid #eae6e2;box-shadow:none;padding:24px 14px 18px}
+.sidebar-logo{display:flex;gap:12px;align-items:center;border:0;padding:8px 11px 28px;margin:0 0 14px}
+.sidebar-logo img{width:39px;height:39px;filter:none}
+.sidebar-logo .marca{color:#2a2429;font:700 19px/1.1 var(--fpbf-serif);letter-spacing:-.04em}
+.sidebar-logo .evento{color:#89838b;font-size:10px;letter-spacing:.015em;margin-top:6px}
+.sidebar-nav{display:flex;flex-direction:column;gap:5px}
+.nav-item{border:0;border-radius:11px;color:#69636d;font-size:13px;padding:13px 12px;font-weight:600;gap:12px}
+.nav-item:hover{background:#f6f1f2;color:#76223a}
+.nav-item.ativo{background:#f7edf0;color:#81243c;border:0;box-shadow:none}
+.nav-glyph{width:25px;height:25px;display:inline-flex;align-items:center;justify-content:center;font-size:20px;font-weight:400;flex-shrink:0}
+.nav-arrow{margin-left:auto;font-size:21px;opacity:0;line-height:1}
+.nav-item.ativo .nav-arrow,.nav-item:hover .nav-arrow{opacity:.7}
+.sidebar-rodape{border-top:1px solid #ece9e6;padding-top:16px}
+.usuario-card{background:#f7f6f4;border:1px solid #eeece9;border-radius:13px;padding:11px}
+.usuario-avatar{background:#e8d5dc;color:#81243c}
+.usuario-info .nome{color:#302a2f}.usuario-info .papel{color:#8c858b}.sair-btn{color:#8a8086}
+.main{background:#f6f5f3}
+.topbar{background:#f6f5f3;backdrop-filter:none;border-bottom:1px solid #eae6e2;padding:24px 40px 20px}
+.topbar h1{font:700 27px/1.2 var(--fpbf-serif);color:#242329;margin-top:3px}
+.topbar-eyebrow{font-size:10px;letter-spacing:.14em;font-weight:800;color:#8e8690}
+.topbar-eyebrow span{color:#c6a9b2;margin:0 4px}
+.topbar-actions{display:flex;align-items:center;gap:13px}
+.topbar-edition{font-size:12px;color:#625e66;font-weight:600}
+.edition-dot,.live-dot{display:inline-block;width:7px;height:7px;background:#50a477;border-radius:50%;margin-right:7px;box-shadow:0 0 0 4px #50a47718}
+.topbar-refresh{background:#fff;border:1px solid #e7e1e4;border-radius:10px;padding:10px 15px;font-size:13px;color:#514a52;font-weight:700}
+.topbar-refresh:hover{border-color:#81243c;color:#81243c}
+.conteudo{padding:29px 40px 70px;max-width:1620px;width:100%;margin:0 auto}
+.workspace-hero{min-height:256px;border-radius:20px;background:#211c28;color:#fff;position:relative;overflow:hidden;padding:40px 46px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;isolation:isolate}
+.workspace-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 79% 34%,#80374d77,transparent 45%),linear-gradient(115deg,#231d29 10%,#382334 90%);z-index:-1}
+.workspace-hero-copy{position:relative;z-index:2;max-width:600px}
+.hero-overline{font-size:10px;letter-spacing:.17em;font-weight:800;color:#d9a9b7;display:flex;gap:13px;align-items:center}
+.hero-line{height:1px;width:31px;background:#a66378}
+.workspace-hero h2{font:600 clamp(30px,3.1vw,46px)/1.14 var(--fpbf-serif);letter-spacing:-.04em;margin:19px 0 12px}
+.workspace-hero h2 em{font-weight:500;color:#efb6c7}
+.workspace-hero p{color:#c9c0cc;font-size:13px;line-height:1.8;max-width:445px;margin:0}
+.workspace-art{width:285px;height:220px;position:relative;flex-shrink:0;margin-right:10px}
+.art-circle{position:absolute;width:245px;height:245px;border:1px solid #eab5c33b;border-radius:50%;top:-14px;right:6px;box-shadow:0 0 0 28px #ffffff06,0 0 0 60px #ffffff04}
+.art-book{position:absolute;width:132px;height:177px;border-radius:3px 11px 11px 3px;transform:rotate(-13deg);box-shadow:14px 16px 35px #0006}
+.art-book-back{right:67px;top:17px;background:#aa6474;transform:rotate(13deg)}
+.art-book-front{right:92px;top:19px;background:linear-gradient(145deg,#e8c9bd,#c9a19e);padding:18px 14px;color:#602a37;display:flex;flex-direction:column;gap:15px;border-left:8px solid #b58586}
+.art-book-front span{font:700 28px var(--fpbf-serif)}.art-book-front i{width:25px;height:2px;background:#8b5060}.art-book-front b{font:700 12px/1.3 var(--fpbf-serif);letter-spacing:.07em}
+.dashboard-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:37px}
+.metric-card{background:#fff;border:1px solid #eae7e3;border-radius:16px;padding:21px 22px;min-height:146px;display:flex;flex-direction:column;box-shadow:0 3px 12px #1b101a04}
+.metric-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.metric-icon{width:33px;height:33px;border-radius:10px;background:#f6edf0;color:#8e304a;display:flex;align-items:center;justify-content:center;font-size:21px}
+.metric-label-top{font-size:9px;font-weight:800;letter-spacing:.15em;color:#c2b9bf}
+.metric-card strong{font:700 35px/1.1 var(--fpbf-serif);letter-spacing:-.06em;color:#29232a}
+.metric-label{font-size:12px;color:#837c83;margin-top:7px}
+.metric-approved .metric-icon{background:#eaf6ef;color:#268353}.metric-review .metric-icon{background:#fff2e4;color:#ad6c27}.metric-progress .metric-icon{background:#eaf0fb;color:#446eac}
+.library-heading{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}
+.section-eyebrow{font-size:10px;letter-spacing:.17em;color:#9b6475;font-weight:800}
+.library-heading h2{font:700 27px var(--fpbf-serif);letter-spacing:-.045em;margin:4px 0 3px}
+.library-heading p{font-size:12px;color:#8c858c;margin:0}
+.library-count{font-size:12px;font-weight:700;background:#ece8e7;color:#6e6570;padding:7px 11px;border-radius:99px;white-space:nowrap}
+.library-filters{background:#fff;border:1px solid #ebe7e3;border-radius:14px;padding:12px;display:flex;align-items:center;margin-bottom:17px;gap:10px}
+.library-filters .search-wrap{position:relative;flex:1;min-width:190px}
+.library-filters .search-wrap>span{position:absolute;top:50%;left:15px;transform:translateY(-50%);font-size:25px;color:#aaa2a9}
+.library-filters input[type=text]{width:100%;padding:12px 14px 12px 43px;border:0;background:#f8f7f6;border-radius:9px;min-width:0}
+.library-filters select{border:0;background:#f8f7f6;padding:12px 13px;border-radius:9px;color:#655d65;min-width:185px}
+.library-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.chapter-card{font-family:inherit;text-align:left;border:1px solid #e8e4e1;background:#fff;border-radius:16px;padding:22px;display:flex;flex-direction:column;min-height:293px;min-width:0;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;box-shadow:0 3px 12px #24152305;color:inherit}
+.chapter-card:hover{transform:translateY(-4px);border-color:#d6a8b8;box-shadow:0 14px 34px #3d1c2c13}
+.chapter-card:focus-visible{outline:3px solid #d6a8b8;outline-offset:3px}
+.chapter-card-head,.chapter-status{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.chapter-number{font-size:11px;font-weight:800;color:#89344d;letter-spacing:.06em;background:#f8edf1;border-radius:7px;padding:7px 9px}
+.chapter-open{font-size:19px;color:#9b9099}
+.chapter-body{flex:1;padding-top:22px}
+.chapter-type{font-size:9px;letter-spacing:.14em;font-weight:800;color:#a29aa2;display:flex;align-items:center;gap:6px}
+.chapter-type-dot{width:6px;height:6px;border-radius:50%;background:#ad6881}
+.chapter-body h3{font:700 18px/1.35 var(--fpbf-serif);letter-spacing:-.025em;margin:9px 0;color:#30262e;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.chapter-authors{font-size:11px;line-height:1.6;color:#8c858c;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chapter-divider{height:1px;background:#f0edeb;margin:17px 0 14px}
+.chapter-status .badge{font-size:10px;padding:5px 9px}
+.chapter-updated{font-size:10px;color:#a9a2a7}
+.chapter-assigned{display:flex;align-items:center;gap:8px;margin-top:13px;color:#847c84;font-size:11px;min-width:0}
+.chapter-assigned>span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chapter-avatar{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f2ecee;color:#8d4b60;flex-shrink:0}
+.library-empty{border:1px dashed #d9d2d7;border-radius:16px;background:#fff;text-align:center;padding:58px 20px}
+.empty-icon{font-size:48px;color:#aa7789}.library-empty h3{font-size:23px;margin:5px 0}.library-empty p{font-size:13px;color:#8a818a}
+#painel-detalhe{left:256px;background:#f6f5f3}
+.painel-header{background:#fff}.painel-corpo{max-width:1150px}
+.card-form,.guia-card{border-radius:17px}
+#tela-login{padding:0;min-height:100vh;background:#f7f6f4}
+.login-editorial{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(430px,.94fr);width:100%;min-height:100vh}
+.login-showcase{position:relative;background:linear-gradient(140deg,#211b27,#392330);padding:54px clamp(30px,5vw,80px);color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.login-showcase:before{content:"";position:absolute;width:580px;height:580px;border:1px solid #ffffff16;border-radius:50%;right:-260px;top:10%;box-shadow:0 0 0 65px #ffffff04,0 0 0 130px #ffffff03}
+.showcase-kicker{font-size:11px;letter-spacing:.17em;font-weight:800;color:#d6b1bd;position:relative}
+.showcase-content{position:relative;max-width:610px}
+.showcase-issue{font-size:12px;color:#c7a7b3;letter-spacing:.2em;font-weight:700}.showcase-issue span{color:#886879;margin:0 9px}
+.showcase-content h2{font:500 clamp(57px,6.7vw,112px)/.99 var(--fpbf-serif);letter-spacing:-.065em;margin:24px 0 13px}
+.showcase-content h2 em{color:#efb6c5;font-weight:500}
+.showcase-content>p{font:500 22px var(--fpbf-serif);color:#e1c5d0}
+.showcase-rule{height:1px;width:62px;background:#c48296;margin:36px 0 21px}
+.showcase-description{color:#bdb0c0;font-size:14px;line-height:1.85;max-width:330px}
+.showcase-footer{display:flex;justify-content:space-between;gap:15px;color:#b9a5b4;font-size:10px;font-weight:800;letter-spacing:.14em;position:relative}
+.login-form-side{display:flex;align-items:center;justify-content:center;padding:45px 30px}
+.login-card{width:100%;max-width:420px;border:0;box-shadow:none;background:transparent;padding:0}
+.login-logo{width:67px;height:67px;margin:0 0 27px;object-fit:contain}
+.login-eyebrow,.login-card h1,.login-card p.sub{text-align:left}
+.login-eyebrow{font-size:10px;letter-spacing:.16em}
+.login-card h1{font:700 37px var(--fpbf-serif);letter-spacing:-.05em;margin:10px 0}
+.login-card p.sub{line-height:1.7;font-size:13px;margin-bottom:33px}
+.login-card .campo{margin-bottom:20px}.login-card .campo label{font-size:12px;margin-bottom:9px}
+.login-card .campo input{padding:15px 16px;background:#fff;border:1px solid #e4dfe2;border-radius:11px}
+.login-card .btn-primary{padding:15px;font-size:14px}
+#barra-carregamento{backdrop-filter:blur(4px)}
+@media(max-width:1250px){.library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.conteudo{padding:25px}.topbar{padding:22px 25px}}
+@media(max-width:950px){.workspace-art{display:none}.workspace-hero{min-height:230px}.sidebar{width:215px}#painel-detalhe{left:215px}.dashboard-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.login-editorial{grid-template-columns:1fr 1fr}.showcase-content h2{font-size:58px}}
+@media(max-width:850px){#app.visivel{flex-direction:column}.sidebar{width:100%;height:auto;position:sticky;top:0;z-index:35;display:flex;flex-direction:row;align-items:center;padding:10px 13px;gap:8px;overflow-x:auto}.sidebar-logo{padding:0 14px 0 0;margin:0;border-right:1px solid #eee;flex-shrink:0}.sidebar-logo img{width:28px;height:28px}.sidebar-logo .marca{font-size:15px}.sidebar-logo .evento{display:none}.sidebar-nav{display:flex;flex-direction:row;overflow-x:auto;gap:3px}.nav-item{padding:9px;white-space:nowrap}.nav-item .nav-glyph{font-size:16px;width:18px}.nav-arrow{display:none}.sidebar-rodape{display:none}.topbar{position:static}.conteudo{padding:18px}#painel-detalhe{left:0}}
+@media(max-width:680px){.library-grid{grid-template-columns:1fr}.dashboard-stats{gap:9px}.metric-card{padding:16px;min-height:128px}.metric-card strong{font-size:30px}.workspace-hero{padding:27px 25px;min-height:205px}.workspace-hero h2{font-size:33px}.workspace-hero p{font-size:12px}.library-filters{flex-wrap:wrap}.library-filters .search-wrap{flex-basis:100%}.library-filters select{flex:1;min-width:140px}.library-heading h2{font-size:23px}.topbar-edition{display:none}.topbar-refresh span{display:none}.topbar h1{font-size:23px}.login-editorial{grid-template-columns:1fr}.login-showcase{min-height:300px;padding:25px 28px}.showcase-content h2{font-size:51px;margin:10px 0}.showcase-description,.showcase-rule{display:none}.showcase-footer{margin-top:25px}.login-form-side{padding:36px 28px 60px}.login-logo{width:54px;height:54px;margin-bottom:14px}.login-card h1{font-size:31px}.login-card p.sub{margin-bottom:22px}}
+@media(prefers-reduced-motion:reduce){.chapter-card,.nav-item{transition:none}.chapter-card:hover{transform:none}}
+</style>
 </head>
 <body>
 
@@ -967,11 +1086,24 @@ tbody td{padding:17px 16px}tbody tr.linha-clicavel:hover{background:#fcf6f8}
 
 <!-- ============ LOGIN ============ -->
 <div id="tela-login">
+  <div class="login-editorial">
+    <div class="login-showcase">
+      <div class="showcase-kicker"><span class="live-dot"></span> PLATAFORMA EDITORIAL · III FPBF</div>
+      <div class="showcase-content">
+        <div class="showcase-issue">01 <span>/</span> EDIÇÃO 2026</div>
+        <h2>O prazer de<br><em>descobrir.</em></h2>
+        <p>Interfaces da Física na Paraíba</p>
+        <div class="showcase-rule"></div>
+        <div class="showcase-description">Um espaço de leitura crítica, diálogo científico e construção coletiva do conhecimento.</div>
+      </div>
+      <div class="showcase-footer"><span>CFP / UFCG</span><span>CONSELHO EDITORIAL</span></div>
+    </div>
+    <div class="login-form-side">
   <div class="login-card">
     <img class="login-logo" src="https://i.ibb.co/wZL2YY0P/logo-forum.png" alt="Logo FPBF">
     <div class="login-eyebrow">FPBF Avalia · Editorial</div>
     <h1 id="login-titulo">Entrar no sistema</h1>
-    <p class="sub" id="login-subtitulo">Painel da comissão e dos(as) avaliadores(as) do III Fórum Paraibano de Física.</p>
+    <p class="sub" id="login-subtitulo">Acesso reservado à comissão editorial e aos pareceristas convidados.</p>
 
     <form id="form-login">
       <div class="campo">
@@ -990,6 +1122,8 @@ tbody td{padding:17px 16px}tbody tr.linha-clicavel:hover{background:#fcf6f8}
     </div>
 
     <div class="mensagem" id="login-mensagem"></div>
+  </div>
+    </div>
   </div>
 </div>
 
@@ -1022,61 +1156,53 @@ tbody td{padding:17px 16px}tbody tr.linha-clicavel:hover{background:#fcf6f8}
   <div class="main">
     <div class="topbar">
       <div>
-        <h1 id="topbar-titulo">Submissões</h1>
+        <div class="topbar-eyebrow">ESPAÇO DE TRABALHO <span> / </span> LIVRO III FPBF</div><h1 id="topbar-titulo">Submissões</h1>
         <div class="topbar-sub" id="topbar-sub"></div>
       </div>
-
+      <div class="topbar-actions">
+        <div class="topbar-edition"><span class="edition-dot"></span> Edição 2026</div>
+        <button class="topbar-refresh" type="button" onclick="carregarSubmissoes()" title="Atualizar capítulos" aria-label="Atualizar capítulos">↻ <span>Atualizar</span></button>
+      </div>
     </div>
 
     <div class="conteudo">
 
       <!-- SUBMISSÕES (comissão + avaliador) -->
       <section class="secao" id="secao-submissoes">
-        <div id="stats-submissoes"></div>
-
-        <div class="barra-filtros">
-          <input type="text" id="filtro-busca" placeholder="Buscar por código, título ou autor...">
-          <select id="filtro-eixo">
-            <option value="">Todos os eixos</option>
-            <option value="Capítulos">Capítulos</option>
-            <option value="Capítulos">Capítulos</option>
-            <option value="Capítulos">Capítulos</option>
-            <option value="Capítulos">Capítulos</option>
-            <option value="Capítulos">Capítulos</option>
-          </select>
-          <select id="filtro-modalidade">
-            <option value="">Todas as modalidades</option>
-            <option value="Comunicação Oral">Comunicação Oral</option>
-            <option value="Pôster">Pôster</option>
-          </select>
+        <div class="workspace-hero">
+          <div class="workspace-hero-copy">
+            <span class="hero-overline">BIBLIOTECA EDITORIAL <span class="hero-line"></span> 2026</span>
+            <h2>Capítulos em <em>avaliação.</em></h2>
+            <p>Organize a análise dos originais, acompanhe pareceres e conduza cada capítulo até sua decisão editorial.</p>
+          </div>
+          <div class="workspace-art" aria-hidden="true">
+            <div class="art-circle"></div><div class="art-book art-book-back"></div><div class="art-book art-book-front"><span>III</span><i></i><b>FÍSICA<br>NA PARAÍBA</b></div>
+          </div>
+        </div>
+        <div id="stats-submissoes" class="dashboard-stats"></div>
+        <div class="library-heading">
+          <div><span class="section-eyebrow">ACERVO</span><h2>Biblioteca de capítulos</h2><p>Selecione um capítulo para abrir seu dossiê de avaliação.</p></div>
+          <span id="library-count" class="library-count">0 capítulos</span>
+        </div>
+        <div class="barra-filtros library-filters">
+          <div class="search-wrap"><span aria-hidden="true">⌕</span><input type="text" id="filtro-busca" placeholder="Buscar capítulo, código ou autor..." aria-label="Buscar capítulos"></div>
+          <select id="filtro-eixo"><option value="">Todos</option><option value="Capítulos">Capítulos</option></select>
+          <select id="filtro-modalidade"><option value="">Todas</option></select>
           <select id="filtro-status">
-            <option value="">Todos os status</option>
+            <option value="">Todos os estados</option>
             <option value="Recebido">Recebido</option>
             <option value="Em análise">Em análise</option>
             <option value="Correção solicitada">Correção solicitada</option>
             <option value="Reenviado">Reenviado</option>
             <option value="Aprovado">Aprovado</option>
+            <option value="Aprovado com correções">Aprovado com correções</option>
             <option value="Reprovado">Reprovado</option>
             <option value="Duplicado">Duplicado (ocultos)</option>
           </select>
         </div>
-
-        <div class="tabela-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Trabalho</th>
-                <th>Eixo</th>
-                <th>Modalidade</th>
-                <th>Status</th>
-                <th id="th-atribuido" style="display:none;">Atribuído a</th>
-                <th>Atualizado</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-submissoes"></tbody>
-          </table>
-          <div class="estado-vazio" id="submissoes-vazio" style="display:none;">Nenhuma submissão encontrada com esses filtros.</div>
-        </div>
+        <div class="library-grid" id="tbody-submissoes"></div>
+        <div class="library-empty" id="submissoes-vazio" style="display:none;"><div class="empty-icon">◇</div><h3>Nenhum capítulo encontrado</h3><p>Tente ajustar os filtros ou atualizar a biblioteca.</p></div>
+        <div id="th-atribuido" style="display:none"></div>
       </section>
 
 
@@ -1195,10 +1321,6 @@ tbody td{padding:17px 16px}tbody tr.linha-clicavel:hover{background:#fcf6f8}
             <select id="atrib-lote-eixo" onchange="atualizarFiltroAvaliadoresPorEixo()">
               <option value="">Selecione o eixo...</option>
               <option value="Capítulos">Capítulos</option>
-              <option value="Capítulos">Capítulos</option>
-              <option value="Capítulos">Capítulos</option>
-              <option value="Capítulos">Capítulos</option>
-              <option value="Capítulos">Capítulos</option>
             </select>
             <select id="atrib-lote-avaliador" onchange="renderizarListaAtribuicoesPorAvaliador()" disabled><option value="">Selecione o eixo primeiro...</option></select>
             <button type="button" class="btn btn-secundario" style="width:auto;" onclick="selecionarTodosLivres()">Selecionar livres</button>
@@ -1237,11 +1359,7 @@ tbody td{padding:17px 16px}tbody tr.linha-clicavel:hover{background:#fcf6f8}
               <div class="campo">
                 <label>Eixos do(a) avaliador(a)</label>
                 <div class="checkbox-grupo">
-                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
-                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
-                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
-                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
-                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
+                  <label class="checkbox-item"><input type="checkbox" value="Capítulos" checked> Capítulos</label>
                 </div>
               </div>
             </div>
@@ -1355,7 +1473,7 @@ tbody td{padding:17px 16px}tbody tr.linha-clicavel:hover{background:#fcf6f8}
 // =============================================================
 
 // Cole aqui a URL do deploy (.../exec) do Code_Admin.gs
-const API_URL = 'https://script.google.com/macros/s/AKfycbzL1sNRBD3Q4LSFMWWvSO910OK2076VIIXttf2kKwnIdqA74dHIs7dmbI3_Kms5WV3XsQ/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbwQxVVbL4sO3_GYHnbGy1YCitPFtV2xV_0lEYmsySCIWNbIgPjYYaCyYcda0deybIpTMQ/exec';
 
 const CHAVE_SESSAO = 'fpbf_avalia_livro_v2_sessao';
 const CHAVE_CACHE = 'fpbf_avalia_livro_v2_cache';
@@ -1643,7 +1761,7 @@ function mostrarApp() {
   const secoes = u.papel === 'Comissão' ? SECOES_COMISSAO : SECOES_AVALIADOR;
   const nav = document.getElementById('sidebar-nav');
   nav.innerHTML = secoes.map(s =>
-    `<button class="nav-item" data-secao="${s.id}">${s.label}</button>`
+    `<button class="nav-item" data-secao="${s.id}"><span class="nav-glyph">${({submissoes:'▤',guia:'◈',atribuicoes:'⇄',avaliadores:'♙',criterios:'☷',configuracoes:'⚙'})[s.id]||'◇'}</span><span>${s.label}</span><span class="nav-arrow">›</span></button>`
   ).join('');
 
   nav.querySelectorAll('.nav-item').forEach(btn => {
@@ -1798,48 +1916,44 @@ async function carregarSubmissoes() {
 }
 
 function renderizarSubmissoes(lista, totalGeral) {
-
-  const tbody = document.getElementById('tbody-submissoes');
+  const grid = document.getElementById('tbody-submissoes');
   const vazio = document.getElementById('submissoes-vazio');
   const ehComissao = STATE.usuario.papel === 'Comissão';
-
-  document.getElementById('th-atribuido').style.display = ehComissao ? '' : 'none';
-
-  const statsEl = document.getElementById('stats-submissoes');
-  const mostrandoDuplicados = ehComissao && document.getElementById('filtro-status').value === 'Duplicado';
-  statsEl.innerHTML = ehComissao
-    ? (mostrandoDuplicados
-        ? `<div class="stats-card"><span class="numero">${lista.length}</span><span class="rotulo-stats">duplicata${lista.length === 1 ? '' : 's'} oculta${lista.length === 1 ? '' : 's'}</span></div>`
-        : `<div class="stats-card"><span class="numero">${totalGeral}</span><span class="rotulo-stats">trabalho${totalGeral === 1 ? '' : 's'} válido${totalGeral === 1 ? '' : 's'}</span></div>`)
-    : '';
-
+  const todas = (STATE.submissoesCache || []).filter(s => s.status !== 'Duplicado');
+  const total = ehComissao ? todas.length : (STATE.totalGeralCache || todas.length);
+  const pendentes = todas.filter(s => ['Recebido','Em análise','Reenviado'].includes(s.status)).length;
+  const aprovados = todas.filter(s => ['Aprovado','Aprovado com correções'].includes(s.status)).length;
+  const revisoes = todas.filter(s => s.status === 'Correção solicitada').length;
+  const metrics = [
+    {icon:'▤',num:total,label:ehComissao?'Capítulos recebidos':'Meus capítulos',type:'total'},
+    {icon:'◷',num:pendentes,label:'Em andamento',type:'progress'},
+    {icon:'✓',num:aprovados,label:'Aprovados',type:'approved'},
+    {icon:'↻',num:revisoes,label:'Aguardando revisão',type:'review'}
+  ];
+  document.getElementById('stats-submissoes').innerHTML = metrics.map(m => `
+    <div class="metric-card metric-${m.type}">
+      <div class="metric-top"><span class="metric-icon">${m.icon}</span><span class="metric-label-top">EDITORIAL</span></div>
+      <strong>${m.num}</strong><span class="metric-label">${m.label}</span>
+    </div>`).join('');
+  document.getElementById('library-count').textContent = lista.length + (lista.length===1?' capítulo':' capítulos');
   vazio.style.display = lista.length ? 'none' : 'block';
-
-  tbody.innerHTML = lista.map(s => {
-
-    const celulaAtribuido = ehComissao ? `
-      <td>
-        ${s.atribuidoPara && s.atribuidoPara.length
-          ? s.atribuidoPara.map(nome => `<span class="atribuido-tag">${escapeHtml(nome)}</span>`).join('<br>')
-          : '<span class="atribuido-tag vazio">Não atribuído</span>'}
-      </td>
-    ` : '';
-
-    return `
-      <tr class="linha-clicavel" onclick="abrirDetalhe('${s.eixo}','${s.codigo}')">
-        <td>
-          <div class="titulo-cel">${escapeHtml(s.titulo)}
-            <span class="codigo">${s.codigo} · ${escapeHtml(s.autores.join(', '))}</span>
-          </div>
-        </td>
-        <td>${s.eixo}</td>
-        <td>Capítulo</td>
-        <td>${badgeStatus(s.status)}</td>
-        ${celulaAtribuido}
-        <td style="color:var(--fpbf-muted); font-size:12.5px;">${s.ultimaAtualizacao}</td>
-      </tr>
-    `;
+  grid.innerHTML = lista.map((s,i) => {
+    const code=escapeHtml(s.codigo), title=escapeHtml(s.titulo);
+    const authors=escapeHtml((s.autores||[]).join(', '));
+    const assigned=(s.atribuidoPara||[]).map(escapeHtml).join(', ');
+    const meta=ehComissao?(assigned||'Aguardando atribuição'):'Avaliação editorial';
+    const status=badgeStatus(s.status||'Recebido');
+    return `<button class="chapter-card" type="button" data-eixo="${escapeHtml(s.eixo)}" data-codigo="${code}" aria-label="Abrir capítulo ${code}">
+      <div class="chapter-card-head"><span class="chapter-number">${code}</span><span class="chapter-open" aria-hidden="true">↗</span></div>
+      <div class="chapter-body"><div class="chapter-type"><span class="chapter-type-dot"></span> CAPÍTULO CIENTÍFICO</div>
+        <h3>${title}</h3><p class="chapter-authors">${authors||'Autoria não informada'}</p></div>
+      <div class="chapter-divider"></div>
+      <div class="chapter-status">${status}<span class="chapter-updated">${escapeHtml(s.ultimaAtualizacao||'')}</span></div>
+      <div class="chapter-assigned"><span class="chapter-avatar">${assigned?'✓':'○'}</span><span>${meta}</span></div>
+    </button>`;
   }).join('');
+  grid.querySelectorAll('.chapter-card').forEach(card => card.addEventListener('click', () =>
+    abrirDetalhe(card.dataset.eixo,card.dataset.codigo)));
 }
 
 
