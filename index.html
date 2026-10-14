@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FPBF Avalia · Editorial | Conselho Editorial · Livro III FPBF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --fpbf-primary: #8b1e2d;
+    --fpbf-primary-dark: #6f1723;
+    --fpbf-bg: #f2f2f0;
+    --fpbf-sidebar: #fbf8f2;
+    --fpbf-card: #ffffff;
+    --fpbf-text: #2d2926;
+    --fpbf-muted: #746f6a;
+    --fpbf-border: #e2ddd2;
+    --fpbf-success: #1f7a45;
+    --fpbf-success-bg: #eaf6ee;
+    --fpbf-warning: #a76400;
+    --fpbf-warning-bg: #fdf3e2;
+    --fpbf-danger: #b42318;
+    --fpbf-danger-bg: #fdecea;
+    --fpbf-info: #245d9c;
+    --fpbf-info-bg: #eaf2fb;
+    --fpbf-radius: 10px;
+    --fpbf-serif: 'Source Serif 4', Georgia, serif;
+    --fpbf-sans: 'Inter', Arial, Helvetica, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--fpbf-bg);
+    color: var(--fpbf-text);
+    font-family: var(--fpbf-sans);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3 { font-family: var(--fpbf-serif); font-weight: 600; margin: 0; }
+
+  button { font-family: inherit; cursor: pointer; }
+
+  a { color: var(--fpbf-primary); }
+
+  ::selection { background: rgba(139,30,45,0.18); }
+
+  /* ============ TELA DE LOGIN ============ */
+
+  #tela-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .login-card {
+    background: var(--fpbf-card);
+    border-radius: var(--fpbf-radius);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 12px 32px rgba(43,20,10,0.08);
+    width: 100%;
+    max-width: 380px;
+    padding: 36px 32px;
+  }
+
+  .login-eyebrow {
+    color: var(--fpbf-primary);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .login-logo {
+    display: block;
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+    margin: 0 auto 18px;
+  }
+
+  .login-eyebrow, .login-card h1, .login-card p.sub { text-align: center; }
+
+  .login-card h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+
+  .login-card p.sub {
+    color: var(--fpbf-muted);
+    font-size: 14px;
+    margin: 0 0 26px;
+  }
+
+  .campo { margin-bottom: 16px; }
+
+  .campo label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--fpbf-text);
+  }
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--fpbf-border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    color: var(--fpbf-text);
+  }
+
+  .campo input:focus,
+  .campo select:focus,
+  .campo textarea:focus {
+    outline: none;
+    border-color: var(--fpbf-primary);
+    box-shadow: 0 0 0 3px rgba(139,30,45,0.12);
+  }
+
+  .campo textarea { resize: vertical; min-height: 70px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+
+  .btn-primary { background: var(--fpbf-primary); color: #fff; width: 100%; }
+  .btn-primary:hover { background: var(--fpbf-primary-dark); }
+  .btn-primary:disabled { opacity: 0.6; cursor: default; }
+
+  .btn-secundario {
+    background: transparent;
+    color: var(--fpbf-primary);
+    border: 1px solid var(--fpbf-border);
+  }
+  .btn-secundario:hover { border-color: var(--fpbf-primary); }
+
+  .btn-perigo { background: var(--fpbf-danger); color: #fff; }
+  .btn-perigo:hover { opacity: 0.9; }
+
+  .btn-mini {
+    padding: 5px 10px;
+    font-size: 12.5px;
+    border-radius: 6px;
+    border: 1px solid var(--fpbf-border);
+    background: #fff;
+    color: var(--fpbf-text);
+  }
+  .btn-mini:hover { border-color: var(--fpbf-primary); color: var(--fpbf-primary); }
+
+  .link-suave {
+    background: none;
+    border: none;
+    color: var(--fpbf-muted);
+    font-size: 13px;
+    text-decoration: underline;
+    padding: 0;
+  }
+  .link-suave:hover { color: var(--fpbf-primary); }
+
+  .mensagem {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    margin-top: 14px;
+    display: none;
+  }
+  .mensagem.visivel { display: block; }
+  .mensagem.erro { background: var(--fpbf-danger-bg); color: var(--fpbf-danger); }
+  .mensagem.sucesso { background: var(--fpbf-success-bg); color: var(--fpbf-success); }
+
+  .spinner {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: girar 0.7s linear infinite;
+  }
+  @keyframes girar { to { transform: rotate(360deg); } }
+
+  /* carregamento global bloqueante: evita cliques concorrentes enquanto a API responde */
+  #barra-carregamento {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .16s ease, visibility .16s ease;
+  }
+  #barra-carregamento.ativa {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+  #barra-carregamento::before {
+    content: '';
+    width: 42px;
+    height: 42px;
+    border: 4px solid rgba(139,30,45,.18);
+    border-top-color: var(--fpbf-primary);
+    border-radius: 50%;
+    animation: girar .75s linear infinite;
+  }
+  #barra-carregamento::after {
+    content: 'Carregando...';
+    color: var(--fpbf-primary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+
+  .stats-card {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    background: var(--fpbf-card);
+    border: 1px solid var(--fpbf-border);
+    border-radius: var(--fpbf-radius);
+    padding: 12px 18px;
+    margin-bottom: 16px;
+  }
+  .stats-card .numero {
+    font-family: var(--fpbf-serif);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--fpbf-primary);
+  }
+  .stats-card .rotulo-stats {
+    font-size: 13px;
+    color: var(--fpbf-muted);
+  }
+
+  .atribuido-tag {
+    display: inline-block;
+    font-size: 11.5px;
+    color: var(--fpbf-muted);
+    margin-top: 3px;
+  }
+  .atribuido-tag.vazio { color: #bfb8ab; font-style: italic; }
+
+
+  .atribuicoes-toolbar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:14px; }
+  .atribuicoes-toolbar select { min-width:250px; }
+  .atribuicoes-resumo { display:none; margin:0 0 16px; padding:15px 16px; border:1px solid var(--fpbf-border); border-radius:12px; background:#fcfbf9; }
+  .atribuicoes-resumo.ativo { display:block; }
+  .resumo-carga { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px; }
+  .resumo-numero { min-width:126px; padding:10px 12px; border:1px solid var(--fpbf-border); border-radius:10px; background:#fff; }
+  .resumo-numero strong { display:block; font-size:20px; line-height:1.1; color:var(--fpbf-text); }
+  .resumo-numero span { display:block; margin-top:3px; font-size:11.5px; color:var(--fpbf-muted); }
+  .resumo-estados { display:flex; gap:7px; flex-wrap:wrap; align-items:center; }
+  .estado-contagem { display:inline-flex; align-items:center; gap:6px; padding:6px 9px; border-radius:999px; border:1px solid var(--fpbf-border); background:#fff; font-size:11.5px; color:var(--fpbf-muted); }
+  .estado-contagem strong { font-size:12px; color:var(--fpbf-text); }
+  .atribuicoes-lista { display:grid; gap:8px; }
+  .atribuicao-item { display:grid; grid-template-columns:28px 1fr auto; gap:10px; align-items:center; padding:12px 14px; border:1px solid var(--fpbf-border); border-radius:10px; background:#fff; }
+  .atribuicao-item.ja-atribuido { background:#f4f2ef; opacity:.62; }
+  .atribuicao-item.conflito-autoria { background:#fff1f2; border-color:#e5a3aa; opacity:1; }
+  .atribuicao-item.conflito-autoria strong { color:#8b1e2d; }
+  .atribuicao-item .meta { font-size:12px; color:var(--fpbf-muted); margin-top:3px; }
+  .atribuicao-item input[type="checkbox"] { width:17px; height:17px; }
+
+  .distribuicao-uniforme-box{display:none;margin:18px 0 8px;padding:18px;border:1px solid var(--fpbf-border);border-radius:14px;background:#fbfaf8}
+  .distribuicao-uniforme-box.ativo{display:block}
+  .distribuicao-uniforme-topo{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px}
+  .distribuicao-uniforme-topo h3{margin:0 0 4px;color:var(--fpbf-primary);font-size:18px}
+  .distribuicao-uniforme-resumo{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}
+  .distribuicao-carga{padding:9px 11px;border:1px solid var(--fpbf-border);border-radius:10px;background:#fff;font-size:12px;line-height:1.35}
+  .distribuicao-carga strong{display:block;color:var(--fpbf-primary);font-size:13px;margin-bottom:2px}
+  .distribuicao-linhas{display:grid;gap:8px}
+  .distribuicao-linha{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,300px);gap:12px;align-items:center;padding:12px 14px;background:#fff;border:1px solid var(--fpbf-border);border-radius:10px}
+  .distribuicao-linha.sem-opcao{background:#fff1f2;border-color:#e5a3aa}
+  .distribuicao-linha select{width:100%;padding:9px 10px;border:1px solid var(--fpbf-border);border-radius:8px;background:#fff}
+  .distribuicao-acoes{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--fpbf-border)}
+  @media(max-width:760px){.distribuicao-linha{grid-template-columns:1fr}.distribuicao-uniforme-box{padding:14px}}
+  .alerta-conflito { font-size:11.5px; color:#8b1e2d; font-weight:700; text-align:right; max-width:220px; }
+  .contador-selecao { font-size:12.5px; color:var(--fpbf-muted); margin-left:auto; }
+
+  /* ============ APP (PÓS-LOGIN) ============ */
+
+  #app { display: none; min-height: 100vh; }
+  #app.visivel { display: flex; }
+
+  .sidebar {
+    width: 232px;
+    flex-shrink: 0;
+    background: var(--fpbf-sidebar);
+    border-right: 1px solid var(--fpbf-border);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 14px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+    align-self: flex-start;
+    overflow: hidden;
+  }
+
+  .sidebar-nav {
+    overflow-y: auto;
+    min-height: 0;
+  }
+
+  .sidebar-rodape {
+    flex-shrink: 0;
+  }
+
+  .sidebar-logo {
+    padding: 4px 10px 20px;
+    border-bottom: 1px solid var(--fpbf-border);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sidebar-logo img {
+    width: 34px; height: 34px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .sidebar-logo .marca {
+    font-family: var(--fpbf-serif);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--fpbf-primary);
+    line-height: 1.2;
+  }
+
+  .sidebar-logo .evento {
+    font-size: 11.5px;
+    color: var(--fpbf-muted);
+    margin-top: 2px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--fpbf-text);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2px;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-item:hover { background: rgba(139,30,45,0.06); }
+
+  .nav-item.ativo {
+    background: rgba(139,30,45,0.09);
+    border-left: 3px solid var(--fpbf-primary);
+    color: var(--fpbf-primary);
+    font-weight: 600;
+  }
+
+  .sidebar-rodape {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--fpbf-border);
+  }
+
+  .usuario-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+
+  .usuario-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--fpbf-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .usuario-info .nome { font-size: 13.5px; font-weight: 600; line-height: 1.3; }
+  .usuario-info .papel { font-size: 12px; color: var(--fpbf-muted); }
+
+  .sair-btn {
+    width: 100%;
+    margin-top: 8px;
+    background: none;
+    border: none;
+    color: var(--fpbf-muted);
+    font-size: 12.5px;
+    text-align: left;
+    padding: 6px 10px;
+  }
+  .sair-btn:hover { color: var(--fpbf-danger); }
+
+  .main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--fpbf-border);
+    background: var(--fpbf-card);
+  }
+
+  .topbar h1 { font-size: 20px; }
+  .topbar .topbar-sub { font-size: 13px; color: var(--fpbf-muted); margin-top: 2px; }
+
+  .conteudo {
+    flex: 1;
+    padding: 26px 28px 60px;
+    overflow-y: auto;
+  }
+
+  .secao { display: none; }
+  .secao.ativa { display: block; }
+
+  /* sino de notificações */
+
+  .sino-wrap { position: relative; }
+
+  .sino-btn {
+    background: none;
+    border: 1px solid var(--fpbf-border);
+    border-radius: 50%;
+    width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--fpbf-text);
+    position: relative;
+  }
+  .sino-btn:hover { border-color: var(--fpbf-primary); color: var(--fpbf-primary); }
+
+  .sino-badge {
+    position: absolute;
+    top: -4px; right: -4px;
+    background: var(--fpbf-danger);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 700;
+    min-width: 17px; height: 17px;
+    border-radius: 9px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+  }
+  .sino-badge.visivel { display: flex; }
+
+  .sino-dropdown {
+    position: absolute;
+    top: 46px; right: 0;
+    width: 340px;
+    max-height: 420px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid var(--fpbf-border);
+    border-radius: 10px;
+    box-shadow: 0 12px 32px rgba(43,20,10,0.14);
+    display: none;
+    z-index: 50;
+  }
+  .sino-dropdown.visivel { display: block; }
+
+  .sino-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--fpbf-border);
+    font-size: 13.5px; font-weight: 600;
+  }
+
+  .notificacao-item {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--fpbf-border);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .notificacao-item:hover { background: #faf8f4; }
+  .notificacao-item.nao-lida { background: rgba(139,30,45,0.04); font-weight: 600; }
+  .notificacao-item .data { display: block; color: var(--fpbf-muted); font-size: 11.5px; font-weight: 400; margin-top: 3px; }
+  .notificacao-vazia { padding: 24px 14px; text-align: center; color: var(--fpbf-muted); font-size: 13px; }
+
+  /* filtros e busca */
+
+  .barra-filtros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .barra-filtros input,
+  .barra-filtros select {
+    padding: 9px 12px;
+    border: 1px solid var(--fpbf-border);
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-family: inherit;
+    background: #fff;
+  }
+
+  .barra-filtros input[type="text"] { flex: 1; min-width: 200px; }
+
+  /* tabela de submissões / avaliadores */
+
+  .tabela-wrap {
+    background: var(--fpbf-card);
+    border: 1px solid var(--fpbf-border);
+    border-radius: var(--fpbf-radius);
+    overflow: hidden;
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead th {
+    text-align: left;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--fpbf-muted);
+    font-weight: 600;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--fpbf-border);
+    background: #faf8f4;
+  }
+
+  tbody td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--fpbf-border);
+    font-size: 13.5px;
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr.linha-clicavel { cursor: pointer; }
+  tbody tr.linha-clicavel:hover { background: #faf8f4; }
+
+  .titulo-cel { font-weight: 600; }
+  .titulo-cel .codigo { display: block; font-weight: 400; color: var(--fpbf-muted); font-size: 12px; margin-top: 2px; }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .estado-vazio {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--fpbf-muted);
+    font-size: 14px;
+  }
+
+  /* detalhe do trabalho ocupa a área principal */
+
+  #overlay { display: none !important; }
+
+  #painel-detalhe {
+    position: fixed;
+    top: 0; left: 232px; right: 0;
+    height: 100vh;
+    width: auto;
+    max-width: none;
+    background: #fff;
+    z-index: 100;
+    transform: translateY(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  #painel-detalhe.visivel { transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+  .painel-header {
+    padding: 20px 22px;
+    border-bottom: 1px solid var(--fpbf-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .painel-fechar {
+    background: none; border: none; font-size: 20px;
+    color: var(--fpbf-muted); line-height: 1; padding: 4px;
+    flex-shrink: 0;
+  }
+  .painel-fechar:hover { color: var(--fpbf-primary); }
+
+  .painel-corpo { flex: 1; overflow-y: auto; padding: 24px clamp(24px, 4vw, 64px) 48px; max-width: 1180px; width: 100%; margin: 0 auto; }
+
+  .bloco { margin-bottom: 24px; }
+  .bloco h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--fpbf-muted);
+    margin-bottom: 10px;
+    font-family: var(--fpbf-sans);
+    font-weight: 600;
+  }
+
+  .linha-info { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; font-size: 13.5px; border-bottom: 1px dashed var(--fpbf-border); }
+  .linha-info:last-child { border-bottom: none; }
+  .linha-info .rotulo { color: var(--fpbf-muted); }
+  .linha-info .valor { text-align: right; font-weight: 500; }
+
+  .criterio-linha {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--fpbf-border);
+  }
+  .criterio-linha:last-child { border-bottom: none; }
+
+  .criterio-topo {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .criterio-nome { font-weight: 600; font-size: 14px; }
+  .criterio-nota { font-weight: 700; color: var(--fpbf-primary); font-size: 15px; }
+  .criterio-desc { font-size: 12.5px; color: var(--fpbf-muted); margin-bottom: 8px; }
+
+  .escala-nota {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .escala-opcao {
+    appearance: none;
+    border: 1px solid var(--fpbf-border);
+    background: #fff;
+    color: var(--fpbf-text);
+    min-height: 44px;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .14s ease, border-color .14s ease, background .14s ease, color .14s ease, box-shadow .14s ease;
+  }
+  .escala-opcao:hover {
+    border-color: var(--fpbf-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(122, 29, 43, .10);
+  }
+  .escala-opcao.ativa {
+    background: var(--fpbf-primary);
+    border-color: var(--fpbf-primary);
+    color: #fff;
+    box-shadow: 0 5px 14px rgba(122, 29, 43, .20);
+  }
+  .escala-legenda {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 7px;
+    color: var(--fpbf-muted);
+    font-size: 11.5px;
+  }
+  @media (max-width: 640px) {
+    .escala-nota { grid-template-columns: repeat(auto-fit, minmax(38px, 1fr)); gap: 6px; }
+    .escala-opcao { min-height: 40px; border-radius: 8px; }
+  }
+
+  .checkbox-grupo { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+  .checkbox-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+  .checkbox-item input { width: auto; }
+
+  .avaliacao-existente {
+    background: #faf8f4;
+    border: 1px solid var(--fpbf-border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .avaliacao-existente .avaliador-nome { font-weight: 600; }
+  .avaliacao-existente .nota-media { color: var(--fpbf-primary); font-weight: 700; }
+
+  .fade-in { animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  .criterio-editor-linha {
+    display: grid;
+    grid-template-columns: 1fr 90px 34px;
+    gap: 10px;
+    align-items: start;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--fpbf-border);
+  }
+
+  .remover-linha {
+    background: none; border: 1px solid var(--fpbf-border); border-radius: 6px;
+    color: var(--fpbf-danger); font-size: 15px; height: 38px;
+  }
+  .remover-linha:hover { background: var(--fpbf-danger-bg); border-color: var(--fpbf-danger); }
+
+  .toggle-linha {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 0; border-bottom: 1px solid var(--fpbf-border);
+  }
+  .toggle-linha:last-child { border-bottom: none; }
+  .toggle-linha .titulo-toggle { font-weight: 600; font-size: 14px; }
+  .toggle-linha .desc-toggle { font-size: 12.5px; color: var(--fpbf-muted); margin-top: 2px; max-width: 380px; }
+
+  .switch { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .switch-slider {
+    position: absolute; inset: 0; background: var(--fpbf-border);
+    border-radius: 24px; transition: 0.2s; cursor: pointer;
+  }
+  .switch-slider::before {
+    content: ''; position: absolute; width: 18px; height: 18px;
+    left: 3px; top: 3px; background: #fff; border-radius: 50%;
+    transition: 0.2s;
+  }
+  .switch input:checked + .switch-slider { background: var(--fpbf-primary); }
+  .switch input:checked + .switch-slider::before { transform: translateX(20px); }
+
+  .card-form {
+    background: var(--fpbf-card);
+    border: 1px solid var(--fpbf-border);
+    border-radius: var(--fpbf-radius);
+    padding: 20px 22px;
+    margin-bottom: 22px;
+  }
+
+  .card-form h2 { font-size: 16px; margin-bottom: 14px; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-grid .campo.full { grid-column: 1 / -1; }
+
+  .acoes-linha { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  @media (max-width: 860px) {
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px 14px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border-right: none;
+      border-bottom: 1px solid var(--fpbf-border);
+      height: auto;
+      min-height: 0;
+      align-self: stretch;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+    .sidebar-logo { border-bottom: none; padding: 0 14px 0 0; margin: 0; border-right: 1px solid var(--fpbf-border); }
+    .sidebar-nav { display: flex; gap: 4px; }
+    .sidebar-rodape { margin-top: 0; padding-top: 0; border-top: none; margin-left: auto; display: flex; align-items: center; gap: 8px; }
+    #app.visivel { flex-direction: column; }
+    .form-grid { grid-template-columns: 1fr; }
+    .conteudo { padding: 18px 16px 50px; }
+    .topbar { padding: 14px 16px; }
+  }
+
+  @media (max-width: 760px) {
+    #painel-detalhe { left: 0; }
+    .login-logo { width: 112px; height: 112px; }
+  }
+
+  .modal-site-backdrop{position:fixed;inset:0;background:rgba(30,20,15,.48);display:none;align-items:center;justify-content:center;z-index:300;padding:20px}
+  .modal-site-backdrop.visivel{display:flex}
+  .modal-site{width:min(560px,96vw);max-height:86vh;overflow:auto;background:#fff;border-radius:14px;box-shadow:0 24px 70px rgba(0,0,0,.25);padding:26px}
+  .modal-site h2{font-size:24px;color:var(--fpbf-primary);margin-bottom:10px}
+  .modal-site p{color:var(--fpbf-text)}
+  .modal-acoes{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .tutorial-passos{display:grid;gap:12px;margin-top:16px}
+  .tutorial-passo{padding:14px;border:1px solid var(--fpbf-border);border-radius:10px;background:#faf8f4}
+  .tutorial-passo strong{color:var(--fpbf-primary)}
+  .fluxo-aviso{padding:12px 14px;border-radius:9px;background:#f8f5ef;border:1px solid var(--fpbf-border);font-size:13px;margin-bottom:14px}
+
+
+/* Refinamento visual — versão final */
+:root {
+  --shadow-soft: 0 8px 28px rgba(36, 28, 24, .08);
+  --shadow-card: 0 3px 14px rgba(36, 28, 24, .06);
+}
+
+/* Cartões do detalhe: espaçamento interno consistente */
+.bloco {
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(128, 110, 96, .16);
+  background: rgba(255,255,255,.98);
+  padding: 22px 24px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.bloco h3 {
+  letter-spacing: .015em;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+.bloco .linha-info { padding: 9px 0; }
+.bloco .campo { margin-bottom: 16px; }
+.bloco .campo:last-of-type { margin-bottom: 0; }
+.bloco iframe { display:block; }
+.bloco > a, .bloco > div > a { line-height:1.4; }
+
+/* O botão final pertence ao cartão, não à borda da página */
+.acao-final-avaliacao {
+  margin: 24px -24px -22px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--fpbf-border);
+  background: #fcfbf9;
+  display: flex;
+  justify-content: flex-end;
+}
+.campo label { font-weight: 650; letter-spacing: -.005em; }
+.campo input, .campo select, .campo textarea, .barra-filtros input, .barra-filtros select {
+  border-radius: 11px !important;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus, .barra-filtros input:focus, .barra-filtros select:focus {
+  outline: none;
+  border-color: rgba(139,30,45,.55) !important;
+  box-shadow: 0 0 0 4px rgba(139,30,45,.08);
+}
+.btn { border-radius: 11px; font-weight: 650; transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease; }
+.btn:not(:disabled):hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(36,28,24,.12); }
+.btn-acao-final {
+  width: auto !important;
+  min-width: 230px;
+  padding: 13px 22px;
+  font-size: 14px;
+}
+.avaliacao-existente { border-radius: 12px; }
+.fluxo-aviso { border-radius: 12px; line-height: 1.55; }
+#painel-detalhe .painel-corpo { scroll-behavior: smooth; }
+@media (max-width: 720px) {
+  .bloco { padding: 18px 16px; border-radius: 14px; }
+  .acao-final-avaliacao {
+    margin: 20px -16px -18px;
+    padding: 16px;
+    justify-content: stretch;
+  }
+  .btn-acao-final { width: 100% !important; min-width: 0; }
+  .linha-info { gap: 18px; }
+}
+
+
+  /* Guia permanente do(a) avaliador(a) */
+  .guia-hero {
+    background: linear-gradient(135deg, rgba(139,30,45,.08), rgba(139,30,45,.02));
+    border: 1px solid var(--fpbf-border);
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 20px;
+  }
+  .guia-hero h2 { margin: 0 0 8px; font-family: var(--fpbf-serif); color: var(--fpbf-primary); font-size: 26px; }
+  .guia-hero p { margin: 0; color: var(--fpbf-muted); line-height: 1.65; max-width: 900px; }
+  .guia-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+  .guia-card {
+    background: var(--fpbf-card); border: 1px solid var(--fpbf-border); border-radius: 14px;
+    padding: 20px 22px; box-shadow: 0 6px 20px rgba(45,41,38,.04);
+  }
+  .guia-card.guia-largo { grid-column: 1 / -1; }
+  .guia-card h3 { margin: 0 0 10px; font-family: var(--fpbf-serif); font-size: 19px; color: var(--fpbf-primary); }
+  .guia-card p, .guia-card li { font-size: 13.5px; line-height: 1.65; color: var(--fpbf-text); }
+  .guia-card ul, .guia-card ol { margin: 8px 0 0 20px; padding: 0; }
+  .guia-card li + li { margin-top: 6px; }
+  .guia-etapa { display:flex; gap:12px; align-items:flex-start; margin-top:12px; }
+  .guia-numero { flex:0 0 28px; width:28px; height:28px; border-radius:50%; background:var(--fpbf-primary); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; }
+  .guia-etapa strong { display:block; margin-bottom:2px; }
+  .guia-aviso { margin-top: 12px; padding: 12px 14px; border-radius: 10px; background: #faf6ef; border:1px solid #eadfce; font-size:13px; line-height:1.55; }
+  .guia-status { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+  .guia-chip { padding:7px 10px; border-radius:999px; border:1px solid var(--fpbf-border); background:#fff; font-size:12px; font-weight:600; }
+  .guia-link-btn { display:inline-flex; align-items:center; gap:6px; margin-top:12px; padding:9px 13px; border:1px solid var(--fpbf-border); border-radius:9px; background:#fff; color:var(--fpbf-primary); text-decoration:none; font-weight:600; font-size:13px; }
+  @media (max-width: 820px) { .guia-grid { grid-template-columns:1fr; } .guia-card.guia-largo { grid-column:auto; } .guia-hero { padding:20px; } }
+
+</style>
+
+<style>
+/* FPBF Avalia Editorial — identidade 2026, camada visual v2 */
+:root{--fpbf-primary:#821e30;--fpbf-primary-dark:#5d1422;--fpbf-bg:#f6f5f7;
+--fpbf-sidebar:#18151e;--fpbf-card:#fff;--fpbf-text:#26232c;--fpbf-muted:#77717e;
+--fpbf-border:#eae6eb;--fpbf-radius:16px;--fpbf-serif:'Source Serif 4',Georgia,serif}
+body{letter-spacing:-.01em}h1,h2,h3{letter-spacing:-.025em}
+.sidebar{background:linear-gradient(170deg,#211a25 0%,#17131c 72%,#301823 100%);border-right:0;padding:24px 14px;box-shadow:4px 0 22px #24142112}
+.sidebar-logo{border-bottom:1px solid #ffffff20;padding:12px 10px 24px}
+.sidebar-logo .marca{color:#fff;font-size:21px}.sidebar-logo .evento{color:#c6b9c2}
+.nav-item{color:#d8d0d8;border-left:0;border-radius:11px;padding:12px 14px;transition:.16s ease}
+.nav-item:hover{background:#ffffff15;color:#fff}
+.nav-item.ativo{background:linear-gradient(90deg,#a12e47,#702239);color:#fff;border-left:0;box-shadow:0 6px 16px #0002}
+.sidebar-rodape{border-color:#ffffff20}.usuario-info .nome{color:#fff}.usuario-info .papel,.sair-btn{color:#c8b9c6}
+.usuario-avatar{background:#c84460}
+.main{background:radial-gradient(circle at 95% 0%,#f4e9ee 0,transparent 33%),#f8f7f9}
+.topbar{padding:22px 34px;border-bottom:1px solid #e9e3e8;background:#ffffffdc;backdrop-filter:blur(16px);position:sticky;top:0;z-index:10}
+.topbar h1{font-size:25px;color:#2b1d27}.conteudo{padding:30px 34px 70px}
+.tabela-wrap,.login-card,.stats-card,.atribuicoes-resumo,.distribuicao-uniforme-box{border:1px solid #ebe4e9;border-radius:17px;box-shadow:0 6px 28px #2a14200a}
+.login-card{max-width:440px;padding:44px 40px;border:1px solid #eee6ea;box-shadow:0 28px 70px #3b132029}
+#tela-login{background:radial-gradient(circle at 80% 10%,#f0dce3,transparent 35%),linear-gradient(130deg,#faf9fa,#e9e3e9)}
+.login-card h1{font-size:30px}.login-eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:11px}
+.btn{border-radius:10px;min-height:41px}.btn-primary{background:linear-gradient(110deg,#821e30,#a32d48);box-shadow:0 5px 15px #821e3029}
+.btn-primary:hover{background:linear-gradient(110deg,#651726,#8c263b)}
+.btn-mini{border-radius:8px}.campo input,.campo select,.campo textarea,.barra-filtros input,.barra-filtros select{border-radius:10px;border:1px solid #e4dce2;padding:11px 13px}
+.stats-card{padding:16px 22px}.stats-card .numero{font-size:32px}
+thead th{background:#faf7f9;color:#7b6672;font-size:11px;letter-spacing:.08em}
+tbody td{padding:17px 16px}tbody tr.linha-clicavel:hover{background:#fcf6f8}
+.titulo-cel{font-weight:650;color:#30232d}.titulo-cel .codigo{line-height:1.6}
+#painel-detalhe{background:#faf9fa;box-shadow:-12px 0 36px #0001}
+.painel-header{background:#fff;border-bottom:1px solid #eee5e9;padding:24px 32px}
+.painel-corpo{max-width:1140px;padding-top:30px}
+.bloco{background:white;border:1px solid #ebe6ea;border-radius:15px;padding:22px 24px;margin-bottom:18px;box-shadow:0 4px 18px #00000006}
+.escala-opcao{border-radius:12px;min-height:48px}
+.escala-opcao.ativa{background:#821e30}
+#filtro-eixo,#filtro-modalidade{display:none!important}
+@media(max-width:850px){.sidebar{background:#211a25}.conteudo{padding:20px 16px}.topbar{padding:15px 18px}}
+</style>
+</head>
+<body>
+
+<div id="barra-carregamento"></div>
+
+<!-- ============ LOGIN ============ -->
+<div id="tela-login">
+  <div class="login-card">
+    <img class="login-logo" src="https://i.ibb.co/wZL2YY0P/logo-forum.png" alt="Logo FPBF">
+    <div class="login-eyebrow">FPBF Avalia · Editorial</div>
+    <h1 id="login-titulo">Entrar no sistema</h1>
+    <p class="sub" id="login-subtitulo">Painel da comissão e dos(as) avaliadores(as) do III Fórum Paraibano de Física.</p>
+
+    <form id="form-login">
+      <div class="campo">
+        <label for="login-email">E-mail</label>
+        <input type="email" id="login-email" autocomplete="username" required>
+      </div>
+      <div class="campo">
+        <label for="login-senha">Senha</label>
+        <input type="password" id="login-senha" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-primary" id="btn-login">Entrar</button>
+    </form>
+
+    <div style="text-align:center; margin-top:16px;">
+      <button class="link-suave" id="btn-esqueci">Esqueci minha senha</button>
+    </div>
+
+    <div class="mensagem" id="login-mensagem"></div>
+  </div>
+</div>
+
+<!-- ============ APP ============ -->
+<div id="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="https://i.ibb.co/wZL2YY0P/logo-forum.png" alt="Logo FPBF">
+      <div>
+        <div class="marca">FPBF Avalia · Editorial</div>
+        <div class="evento">III Fórum Paraibano de Física</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebar-nav"></nav>
+
+    <div class="sidebar-rodape">
+      <div class="usuario-card">
+        <div class="usuario-avatar" id="usuario-inicial">?</div>
+        <div class="usuario-info">
+          <div class="nome" id="usuario-nome">—</div>
+          <div class="papel" id="usuario-papel">—</div>
+        </div>
+      </div>
+      <button class="sair-btn" id="btn-sair">Sair da conta</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h1 id="topbar-titulo">Submissões</h1>
+        <div class="topbar-sub" id="topbar-sub"></div>
+      </div>
+
+    </div>
+
+    <div class="conteudo">
+
+      <!-- SUBMISSÕES (comissão + avaliador) -->
+      <section class="secao" id="secao-submissoes">
+        <div id="stats-submissoes"></div>
+
+        <div class="barra-filtros">
+          <input type="text" id="filtro-busca" placeholder="Buscar por código, título ou autor...">
+          <select id="filtro-eixo">
+            <option value="">Todos os eixos</option>
+            <option value="Capítulos">Capítulos</option>
+            <option value="Capítulos">Capítulos</option>
+            <option value="Capítulos">Capítulos</option>
+            <option value="Capítulos">Capítulos</option>
+            <option value="Capítulos">Capítulos</option>
+          </select>
+          <select id="filtro-modalidade">
+            <option value="">Todas as modalidades</option>
+            <option value="Comunicação Oral">Comunicação Oral</option>
+            <option value="Pôster">Pôster</option>
+          </select>
+          <select id="filtro-status">
+            <option value="">Todos os status</option>
+            <option value="Recebido">Recebido</option>
+            <option value="Em análise">Em análise</option>
+            <option value="Correção solicitada">Correção solicitada</option>
+            <option value="Reenviado">Reenviado</option>
+            <option value="Aprovado">Aprovado</option>
+            <option value="Reprovado">Reprovado</option>
+            <option value="Duplicado">Duplicado (ocultos)</option>
+          </select>
+        </div>
+
+        <div class="tabela-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Trabalho</th>
+                <th>Eixo</th>
+                <th>Modalidade</th>
+                <th>Status</th>
+                <th id="th-atribuido" style="display:none;">Atribuído a</th>
+                <th>Atualizado</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-submissoes"></tbody>
+          </table>
+          <div class="estado-vazio" id="submissoes-vazio" style="display:none;">Nenhuma submissão encontrada com esses filtros.</div>
+        </div>
+      </section>
+
+
+
+      <!-- GUIA DO(A) AVALIADOR(A) -->
+      <section class="secao" id="secao-guia">
+        <div class="guia-hero">
+          <h2>Guia do(a) Avaliador(a)</h2>
+          <p>Este guia reúne o fluxo completo do FPBF Avalia · Editorial. Consulte sempre que tiver dúvida sobre trabalhos atribuídos, critérios, parecer, estados, publicação do resultado ou funcionamento da plataforma.</p>
+        </div>
+
+        <div class="guia-grid">
+          <div class="guia-card guia-largo">
+            <h3>1. Fluxo completo da avaliação</h3>
+            <div class="guia-etapa"><div class="guia-numero">1</div><div><strong>Acesse “Meus Trabalhos”</strong>Você verá apenas os trabalhos atribuídos ao seu usuário e compatíveis com seus eixos de atuação.</div></div>
+            <div class="guia-etapa"><div class="guia-numero">2</div><div><strong>Abra o trabalho</strong>Confira título, autores, eixo, modalidade, arquivo submetido e o estado atual antes de começar a avaliação.</div></div>
+            <div class="guia-etapa"><div class="guia-numero">3</div><div><strong>Leia o arquivo integralmente</strong>Use o visualizador do próprio painel ou “Abrir em nova aba” quando precisar ampliar o documento.</div></div>
+            <div class="guia-etapa"><div class="guia-numero">4</div><div><strong>Atribua as notas</strong>Preencha todos os critérios apresentados. Os critérios e limites são definidos pela Comissão Organizadora e podem ser atualizados no sistema.</div></div>
+            <div class="guia-etapa"><div class="guia-numero">5</div><div><strong>Escolha o status recomendado</strong>Selecione somente o resultado compatível com a análise realizada.</div></div>
+            <div class="guia-etapa"><div class="guia-numero">6</div><div><strong>Escreva o Parecer da Avaliação</strong>O parecer deve ser claro, objetivo e suficiente para explicar ao autor o resultado e, quando houver, as correções necessárias.</div></div>
+            <div class="guia-etapa"><div class="guia-numero">7</div><div><strong>Revise e envie</strong>Leia novamente notas, status e parecer antes de clicar no botão final. O texto do botão informa se o resultado será publicado ao autor ou ficará para revisão da comissão.</div></div>
+          </div>
+
+          <div class="guia-card">
+            <h3>2. Estados do trabalho</h3>
+            <div class="guia-status">
+              <span class="guia-chip">Recebido</span><span class="guia-chip">Em análise</span><span class="guia-chip">Correção solicitada</span><span class="guia-chip">Reenviado</span><span class="guia-chip">Aprovado</span><span class="guia-chip">Reprovado</span><span class="guia-chip">Duplicado</span>
+            </div>
+            <ul>
+              <li><strong>Recebido:</strong> submissão registrada, ainda sem avaliação iniciada.</li>
+              <li><strong>Em análise:</strong> o trabalho já foi atribuído para avaliação.</li>
+              <li><strong>Correção solicitada:</strong> o autor deve ajustar o trabalho e enviar nova versão.</li>
+              <li><strong>Reenviado:</strong> uma versão corrigida foi recebida e deve ser verificada novamente.</li>
+              <li><strong>Aprovado:</strong> trabalho aceito após a avaliação.</li>
+              <li><strong>Reprovado:</strong> trabalho não aprovado para apresentação nesta edição.</li>
+              <li><strong>Duplicado:</strong> registro administrativo ocultado pela Comissão por corresponder a uma submissão repetida; não entra no fluxo de avaliação.</li>
+            </ul>
+          </div>
+
+          <div class="guia-card">
+            <h3>3. Quem libera o resultado?</h3>
+            <p>O sistema pode operar em dois modos definidos pela Comissão Organizadora.</p>
+            <ul>
+              <li><strong>Avaliador(a) envia o resultado:</strong> o botão final aparece como “Enviar resultado ao autor”. Ao confirmar, o status e o parecer são publicados e o e-mail correspondente é enviado ao autor.</li>
+              <li><strong>Só a comissão libera:</strong> sua avaliação é salva para revisão. O autor ainda não recebe o resultado até a comissão realizar a liberação.</li>
+            </ul>
+            <div class="guia-aviso"><strong>Importante:</strong> o painel consulta essa permissão diretamente no sistema. Sempre observe a mensagem exibida em “Resultado da avaliação” antes do envio.</div>
+          </div>
+
+          <div class="guia-card">
+            <h3>4. Como escrever o parecer</h3>
+            <ul>
+              <li>Explique de forma objetiva os principais pontos considerados na avaliação.</li>
+              <li>Quando solicitar correção, indique exatamente o que precisa ser revisto.</li>
+              <li>Evite mensagens vagas como “corrigir o trabalho” sem indicar o problema.</li>
+              <li>Mantenha linguagem respeitosa, técnica e adequada ao contexto acadêmico.</li>
+              <li>Confira se o parecer está coerente com o status escolhido.</li>
+            </ul>
+            <div class="guia-aviso">Se você tentar reenviar uma avaliação sem alterar o parecer, o sistema exibirá uma confirmação porque o autor poderá receber novamente o mesmo texto.</div>
+          </div>
+
+          <div class="guia-card">
+            <h3>5. Correção solicitada e reenvio</h3>
+            <p>Quando o resultado for <strong>Correção solicitada</strong>, o autor recebe as orientações e utiliza a aba de acompanhamento da submissão para enviar a nova versão.</p>
+            <p>Quando a nova versão entrar no sistema, o trabalho ficará como <strong>Reenviado</strong>. Ao abrir novamente, confira o novo arquivo e verifique se as observações anteriores foram atendidas antes de definir o resultado seguinte.</p>
+          </div>
+
+          <div class="guia-card">
+            <h3>6. Critérios e notas</h3>
+            <p>Os critérios exibidos na avaliação são controlados pela comissão. Se houver alteração nos critérios, a plataforma sincroniza os valores atuais com o servidor.</p>
+            <ul>
+              <li>Preencha todos os critérios antes de finalizar.</li>
+              <li>A nota exibida deve respeitar o limite indicado em cada critério.</li>
+              <li>O resultado não deve ser definido apenas pela soma numérica: considere também a análise acadêmica do trabalho e as regras estabelecidas para o evento.</li>
+            </ul>
+          </div>
+
+          <div class="guia-card">
+            <h3>7. Segurança durante o carregamento</h3>
+            <p>Quando o círculo de carregamento estiver visível, a plataforma bloqueia temporariamente os comandos. Isso evita envio duplicado, duas avaliações simultâneas ou atribuições repetidas.</p>
+            <div class="guia-aviso">Não recarregue ou feche a página enquanto uma ação de envio estiver sendo processada, salvo se o sistema apresentar erro e liberar novamente a interface.</div>
+          </div>
+
+          <div class="guia-card">
+            <h3>8. Depois de enviar</h3>
+            <p>Após a conclusão, a plataforma atualiza a lista de trabalhos para refletir o estado mais recente. Confira o status mostrado em “Meus Trabalhos” antes de abrir outra avaliação.</p>
+            <p>Se o trabalho continuar disponível para nova análise, isso pode ocorrer porque houve reenvio de uma versão corrigida ou porque a comissão ainda precisa liberar o resultado.</p>
+          </div>
+
+          <div class="guia-card">
+            <h3>9. Boas práticas</h3>
+            <ul>
+              <li>Avalie cada trabalho de forma independente.</li>
+              <li>Leia todo o documento antes de registrar o resultado.</li>
+              <li>Revise o parecer antes de publicar.</li>
+              <li>Não compartilhe acesso, arquivos ou informações das submissões fora do processo de avaliação.</li>
+              <li>Em caso de dúvida sobre uma regra de avaliação, consulte a Comissão Organizadora antes de publicar o resultado.</li>
+            </ul>
+          </div>
+
+          <div class="guia-card">
+            <h3>10. Acesso à plataforma</h3>
+            <p>Use sempre o endereço oficial do sistema para acessar suas avaliações:</p>
+            <a class="guia-link-btn" href="https://submissoesfpbf-dotcom.github.io/fpbfavalia/" target="_blank" rel="noopener">Abrir FPBF Avalia · Editorial ↗</a>
+            <div class="guia-aviso">O guia de primeiro acesso continua aparecendo automaticamente para novos usuários. Esta aba é a versão permanente e detalhada para consulta a qualquer momento.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ATRIBUIÇÕES EM LOTE (comissão) -->
+      <section class="secao" id="secao-atribuicoes">
+        <div class="card-form">
+          <h2>Atribuir trabalhos</h2>
+          <p style="font-size:13px; color:var(--fpbf-muted); margin-top:-8px; margin-bottom:16px;">Selecione vários trabalhos livres e atribua todos ao(à) mesmo(a) avaliador(a). Trabalhos já atribuídos aparecem em cinza e não podem ser selecionados quando o modo de avaliador(a) único(a) estiver ativo.</p>
+          <div class="atribuicoes-toolbar">
+            <select id="atrib-lote-eixo" onchange="atualizarFiltroAvaliadoresPorEixo()">
+              <option value="">Selecione o eixo...</option>
+              <option value="Capítulos">Capítulos</option>
+              <option value="Capítulos">Capítulos</option>
+              <option value="Capítulos">Capítulos</option>
+              <option value="Capítulos">Capítulos</option>
+              <option value="Capítulos">Capítulos</option>
+            </select>
+            <select id="atrib-lote-avaliador" onchange="renderizarListaAtribuicoesPorAvaliador()" disabled><option value="">Selecione o eixo primeiro...</option></select>
+            <button type="button" class="btn btn-secundario" style="width:auto;" onclick="selecionarTodosLivres()">Selecionar livres</button>
+            <button type="button" class="btn btn-primary" style="width:auto;" id="btn-atribuir-lote" onclick="atribuirSelecionadosUI()">Atribuir selecionados</button>
+            <button type="button" class="btn btn-secundario" style="width:auto;" id="btn-distribuir-uniforme" onclick="gerarDistribuicaoUniformeUI()">Distribuir uniformemente</button>
+            <span class="contador-selecao" id="contador-atribuicoes">0 selecionados</span>
+          </div>
+          <div id="resumo-avaliador-atribuicoes" class="atribuicoes-resumo"></div>
+          <div id="distribuicao-uniforme-preview" class="distribuicao-uniforme-box"></div>
+          <div id="lista-atribuicoes" class="atribuicoes-lista"></div>
+        </div>
+      </section>
+
+      <!-- AVALIADORES (comissão) -->
+      <section class="secao" id="secao-avaliadores">
+
+        <div class="card-form">
+          <h2>Adicionar usuário</h2>
+          <form id="form-usuario">
+            <div class="form-grid">
+              <div class="campo">
+                <label for="usuario-nome-input">Nome</label>
+                <input type="text" id="usuario-nome-input" required>
+              </div>
+              <div class="campo">
+                <label for="usuario-email-input">E-mail</label>
+                <input type="email" id="usuario-email-input" required>
+              </div>
+              <div class="campo">
+                <label for="usuario-papel-input">Papel</label>
+                <select id="usuario-papel-input">
+                  <option value="Avaliador">Avaliador</option>
+                  <option value="Comissão">Comissão</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label>Eixos do(a) avaliador(a)</label>
+                <div class="checkbox-grupo">
+                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
+                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
+                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
+                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
+                  <label class="checkbox-item"><input type="checkbox" value="Capítulos"> Capítulos</label>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:14px;">
+              <button type="submit" class="btn btn-primary" style="width:auto;" id="btn-add-usuario">Adicionar e enviar senha por e-mail</button>
+            </div>
+            <div class="mensagem" id="usuario-mensagem"></div>
+          </form>
+        </div>
+
+        <div class="tabela-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Papel</th>
+                <th>Eixos</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tbody-usuarios"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CRITÉRIOS (comissão) -->
+      <section class="secao" id="secao-criterios">
+        <div class="card-form">
+          <h2>Critérios de avaliação</h2>
+          <p style="font-size:13px; color:var(--fpbf-muted); margin-top:-8px; margin-bottom:16px;">
+            Esses critérios aparecem no formulário de avaliação dos(as) avaliadores(as), na ordem definida abaixo.
+          </p>
+
+          <div id="lista-criterios"></div>
+
+          <button type="button" class="btn btn-secundario" id="btn-add-criterio" style="width:auto; margin-top:4px;">+ Adicionar critério</button>
+
+          <div style="margin-top:20px;">
+            <button type="button" class="btn btn-primary" style="width:auto;" id="btn-salvar-criterios">Salvar critérios</button>
+          </div>
+          <div class="mensagem" id="criterios-mensagem"></div>
+        </div>
+      </section>
+
+      <!-- CONFIGURAÇÕES (comissão) -->
+      <section class="secao" id="secao-configuracoes">
+        <div class="card-form">
+          <h2>Configurações gerais</h2>
+
+          <div class="toggle-linha">
+            <div>
+              <div class="titulo-toggle">Quem avisa o autor sobre atualizações</div>
+              <div class="desc-toggle">Define se o e-mail de atualização de status/parecer é enviado assim que o(a) avaliador(a) salva a avaliação, ou só quando a comissão libera manualmente.</div>
+            </div>
+            <select id="config-quem-notifica" style="width:180px;">
+              <option value="comissao">Só a comissão libera</option>
+              <option value="avaliador">Avaliador(a) envia o resultado</option>
+            </select>
+          </div>
+
+          <div class="toggle-linha">
+            <div>
+              <div class="titulo-toggle">Permitir múltiplos(as) avaliadores(as) por trabalho</div>
+              <div class="desc-toggle">Quando ativado, um mesmo trabalho pode ser atribuído a mais de um(a) avaliador(a) ao mesmo tempo.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="config-multiplos-avaliadores">
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <div style="margin-top:20px;">
+            <button type="button" class="btn btn-primary" style="width:auto;" id="btn-salvar-config">Salvar configurações</button>
+          </div>
+          <div class="mensagem" id="config-mensagem"></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- painel lateral de detalhe -->
+<div id="overlay"></div>
+<div id="painel-detalhe">
+  <div class="painel-header">
+    <div>
+      <h3 id="detalhe-codigo" style="font-family:var(--fpbf-serif); font-size:19px; color:var(--fpbf-primary);"></h3>
+      <div style="font-size:12.5px; color:var(--fpbf-muted); margin-top:2px;" id="detalhe-eixo-modalidade"></div>
+    </div>
+    <button class="painel-fechar" id="painel-fechar">✕</button>
+  </div>
+  <div class="painel-corpo" id="painel-corpo"></div>
+</div>
+
+
+<div class="modal-site-backdrop" id="modal-site-backdrop">
+  <div class="modal-site" role="dialog" aria-modal="true" aria-labelledby="modal-site-titulo">
+    <h2 id="modal-site-titulo">Aviso</h2>
+    <div id="modal-site-corpo"></div>
+    <div class="modal-acoes" id="modal-site-acoes"></div>
+  </div>
+</div>
+
+<script>
+
+// =============================================================
+// CONFIGURAÇÃO
+// =============================================================
+
+// Cole aqui a URL do deploy (.../exec) do Code_Admin.gs
+const API_URL = 'COLE_AQUI_A_NOVA_URL_EXEC_DA_API_DE_AVALIACAO';
+
+const CHAVE_SESSAO = 'fpbf_avalia_livro_v2_sessao';
+const CHAVE_CACHE = 'fpbf_avalia_livro_v2_cache';
+const CACHE_TTL = 90 * 1000;
+
+const CORES_STATUS = {
+  'Recebido': 'info', 'Em análise': 'warning', 'Correção solicitada': 'warning',
+  '': 'warning', 'Reenviado': 'info',
+  'Aprovado': 'success', 'Reprovado': 'danger', 'Duplicado': 'danger'
+};
+
+const STATE = {
+  token: null,
+  usuario: null,
+  secaoAtual: null,
+  avaliadoresCache: [],
+  criteriosCache: [],
+  submissaoAberta: null,
+  submissoesCache: [],
+  totalGeralCache: 0,
+  fluxo: { quemNotificaAutor: 'comissao', podePublicarResultado: false }
+};
+
+
+// =============================================================
+// COMUNICAÇÃO COM A API (com retry, igual ao formulário público)
+// =============================================================
+
+let chamadasAtivas = 0;
+
+function iniciarCarregamento() {
+  chamadasAtivas++;
+  document.getElementById('barra-carregamento').classList.add('ativa');
+}
+
+function pararCarregamento() {
+  chamadasAtivas = Math.max(0, chamadasAtivas - 1);
+  if (chamadasAtivas === 0) document.getElementById('barra-carregamento').classList.remove('ativa');
+}
+
+async function chamarAPI(corpo, tentativas) {
+
+  if (tentativas === undefined) tentativas = 3;
+
+  iniciarCarregamento();
+
+  try {
+
+    for (let i = 1; i <= tentativas; i++) {
+      try {
+
+        const controlador = new AbortController();
+        const timeout = setTimeout(() => controlador.abort(), 20000);
+
+        const resposta = await fetch(API_URL, {
+          method: 'POST',
+          body: JSON.stringify(corpo),
+          signal: controlador.signal
+        });
+
+        clearTimeout(timeout);
+
+        if (!resposta.ok) throw new Error('Falha de comunicação (' + resposta.status + ').');
+
+        return await resposta.json();
+
+      } catch (erro) {
+        if (i === tentativas) {
+          throw new Error('Não foi possível se comunicar com o servidor. Tente novamente.');
+        }
+        await new Promise(r => setTimeout(r, 1200 * i));
+      }
+    }
+
+  } finally {
+    pararCarregamento();
+  }
+}
+
+function chamar(action, extras) {
+  return chamarAPI(Object.assign({ action, token: STATE.token }, extras || {}));
+}
+
+
+// =============================================================
+// SESSÃO (persistência local)
+// =============================================================
+
+function salvarSessao(token, usuario) {
+  STATE.token = token;
+  STATE.usuario = usuario;
+  localStorage.setItem(CHAVE_SESSAO, JSON.stringify({ token, usuario }));
+}
+
+function carregarSessao() {
+  try {
+    const bruto = localStorage.getItem(CHAVE_SESSAO);
+    if (!bruto) return false;
+    const dados = JSON.parse(bruto);
+    STATE.token = dados.token;
+    STATE.usuario = dados.usuario;
+    return true;
+  } catch (e) { return false; }
+}
+
+function limparSessao() {
+  STATE.token = null;
+  STATE.usuario = null;
+  localStorage.removeItem(CHAVE_SESSAO);
+  localStorage.removeItem(CHAVE_CACHE);
+}
+
+
+// =============================================================
+// MENSAGENS / UI HELPERS
+// =============================================================
+
+function mostrarMensagem(id, tipo, texto) {
+  const el = document.getElementById(id);
+  el.className = 'mensagem visivel ' + tipo;
+  el.textContent = texto;
+}
+
+function limparMensagem(id) {
+  const el = document.getElementById(id);
+  el.className = 'mensagem';
+  el.textContent = '';
+}
+
+function badgeStatus(status) {
+  const cor = CORES_STATUS[status] || 'info';
+  return `<span class="badge" style="background:var(--fpbf-${cor}-bg); color:var(--fpbf-${cor});">${escapeHtml(status)}</span>`;
+}
+
+function escapeHtml(v) {
+  return String(v == null ? '' : v)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+function iniciais(nome) {
+  const partes = String(nome || '?').trim().split(/\s+/);
+  return (partes[0]?.[0] || '?').toUpperCase();
+}
+
+function extrairIdDrive(url) {
+  if (!url) return null;
+  const m = String(url).match(/[-\w]{25,}/);
+  return m ? m[0] : null;
+}
+
+
+
+function mostrarModalSite(titulo, mensagem, opcoes) {
+  const fundo = document.getElementById('modal-site-backdrop');
+  document.getElementById('modal-site-titulo').textContent = titulo || 'Aviso';
+  document.getElementById('modal-site-corpo').innerHTML = `<p>${escapeHtml(mensagem || '')}</p>`;
+  const acoes = document.getElementById('modal-site-acoes');
+  acoes.innerHTML = '<button class="btn btn-primary" style="width:auto;" id="modal-ok">OK</button>';
+  fundo.classList.add('visivel');
+  document.getElementById('modal-ok').onclick = () => fundo.classList.remove('visivel');
+}
+
+function confirmarModalSite(titulo, mensagem) {
+  return new Promise(resolve => {
+    const fundo = document.getElementById('modal-site-backdrop');
+    document.getElementById('modal-site-titulo').textContent = titulo || 'Confirmar';
+    document.getElementById('modal-site-corpo').innerHTML = `<p>${escapeHtml(mensagem || '')}</p>`;
+    const acoes = document.getElementById('modal-site-acoes');
+    acoes.innerHTML = '<button class="btn btn-secundario" style="width:auto;" id="modal-cancelar">Cancelar</button><button class="btn btn-primary" style="width:auto;" id="modal-confirmar">Confirmar</button>';
+    fundo.classList.add('visivel');
+    const fechar = valor => { fundo.classList.remove('visivel'); resolve(valor); };
+    document.getElementById('modal-cancelar').onclick = () => fechar(false);
+    document.getElementById('modal-confirmar').onclick = () => fechar(true);
+  });
+}
+
+function mostrarTutorialPrimeiroAcesso() {
+  if (!STATE.usuario || !STATE.usuario.email) return;
+  const chave = 'fpbf_tutorial_v1_' + STATE.usuario.email.toLowerCase();
+  if (localStorage.getItem(chave)) return;
+
+  const ehComissao = STATE.usuario.papel === 'Comissão';
+  const fundo = document.getElementById('modal-site-backdrop');
+  document.getElementById('modal-site-titulo').textContent = 'Como usar o FPBF Avalia · Editorial';
+  document.getElementById('modal-site-corpo').innerHTML = `
+    <p>Este guia aparece apenas no seu primeiro acesso.</p>
+    <div class="tutorial-passos">
+      <div class="tutorial-passo"><strong>1. Abra um trabalho</strong><br>Clique na linha da submissão para visualizar o arquivo, dados e andamento.</div>
+      ${ehComissao
+        ? '<div class="tutorial-passo"><strong>2. Atribua avaliadores(as)</strong><br>Ao atribuir um trabalho recebido, o status muda automaticamente para “Em análise”.</div><div class="tutorial-passo"><strong>3. Revise o resultado</strong><br>Quando a comissão controla a liberação, a proposta do(a) avaliador(a) fica interna até você liberar.</div>'
+        : '<div class="tutorial-passo"><strong>2. Dê as notas</strong><br>Avalie cada critério e escolha um resultado compatível: correção solicitada, aprovado ou reprovado.</div><div class="tutorial-passo"><strong>3. Parecer da Avaliação</strong><br>Use o único campo de parecer. Se a comissão controlar a liberação, seu texto ficará aguardando revisão; caso contrário, será publicado ao autor.</div>'}
+      <div class="tutorial-passo"><strong>4. Entenda os botões</strong><br>“Salvar avaliação para revisão da comissão” não publica nada. “Enviar resultado ao autor” ou “Liberar resultado ao autor” publica o status, atualiza o acompanhamento e envia o e-mail.</div>
+    </div>`;
+  document.getElementById('modal-site-acoes').innerHTML = '<button class="btn btn-primary" style="width:auto;" id="tutorial-entendi">Entendi</button>';
+  fundo.classList.add('visivel');
+  document.getElementById('tutorial-entendi').onclick = () => {
+    localStorage.setItem(chave, '1');
+    fundo.classList.remove('visivel');
+  };
+}
+
+// =============================================================
+// LOGIN / LOGOUT
+// =============================================================
+
+document.getElementById('form-login').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById('login-email').value.trim();
+  const senha = document.getElementById('login-senha').value;
+  const btn = document.getElementById('btn-login');
+
+  limparMensagem('login-mensagem');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Entrando...';
+
+  try {
+    const resposta = await chamarAPI({ action: 'autenticar', email, senha });
+
+    if (!resposta || !resposta.sucesso) {
+      mostrarMensagem('login-mensagem', 'erro', (resposta && resposta.erro) || 'Não foi possível entrar.');
+      return;
+    }
+
+    salvarSessao(resposta.token, resposta.usuario);
+    mostrarApp();
+
+  } catch (erro) {
+    mostrarMensagem('login-mensagem', 'erro', erro.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Entrar';
+  }
+});
+
+document.getElementById('btn-esqueci').addEventListener('click', async function() {
+  const email = prompt('Digite o e-mail cadastrado para receber uma nova senha:');
+  if (!email) return;
+
+  try {
+    const resposta = await chamarAPI({ action: 'esqueciSenha', email: email.trim() });
+    mostrarMensagem('login-mensagem', 'sucesso',
+      (resposta && resposta.mensagem) || 'Se o e-mail estiver cadastrado, uma nova senha foi enviada. Verifique também a caixa de spam.'
+    );
+  } catch (erro) {
+    mostrarMensagem('login-mensagem', 'erro', erro.message);
+  }
+});
+
+document.getElementById('btn-sair').addEventListener('click', async function() {
+  try { await chamar('encerrarSessao'); } catch (e) { /* ignora falha ao sair */ }
+  limparSessao();
+  location.reload();
+});
+
+
+// =============================================================
+// NAVEGAÇÃO / MONTAGEM DO APP
+// =============================================================
+
+const SECOES_COMISSAO = [
+  { id: 'submissoes', label: 'Submissões' },
+  { id: 'atribuicoes', label: 'Atribuições' },
+  { id: 'avaliadores', label: 'Avaliadores(as)' },
+  { id: 'criterios', label: 'Critérios' },
+  { id: 'configuracoes', label: 'Configurações' }
+];
+
+const SECOES_AVALIADOR = [
+  { id: 'submissoes', label: 'Meus Trabalhos' },
+  { id: 'guia', label: 'Guia do(a) Avaliador(a)' }
+];
+
+function mostrarApp() {
+
+  document.getElementById('tela-login').style.display = 'none';
+  document.getElementById('app').classList.add('visivel');
+
+  const u = STATE.usuario;
+  document.getElementById('usuario-inicial').textContent = iniciais(u.nome);
+  document.getElementById('usuario-nome').textContent = u.nome;
+  document.getElementById('usuario-papel').textContent = u.papel;
+
+  const secoes = u.papel === 'Comissão' ? SECOES_COMISSAO : SECOES_AVALIADOR;
+  const nav = document.getElementById('sidebar-nav');
+  nav.innerHTML = secoes.map(s =>
+    `<button class="nav-item" data-secao="${s.id}">${s.label}</button>`
+  ).join('');
+
+  nav.querySelectorAll('.nav-item').forEach(btn => {
+    btn.addEventListener('click', () => irParaSecao(btn.dataset.secao));
+  });
+
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.toggle('ativo', b.dataset.secao === 'submissoes'));
+  document.querySelectorAll('.secao').forEach(s => s.classList.remove('ativa'));
+  document.getElementById('secao-submissoes').classList.add('ativa', 'fade-in');
+  STATE.secaoAtual = 'submissoes';
+
+  const isAvaliador = u.papel !== 'Comissão';
+  document.getElementById('topbar-titulo').textContent = isAvaliador ? 'Meus Trabalhos' : 'Submissões';
+
+  // Trabalhos podem aparecer do cache, mas critérios e regras de publicação
+  // são sempre sincronizados com o servidor antes do uso.
+  STATE.criteriosCache = [];
+  STATE.fluxo = { quemNotificaAutor: 'comissao', podePublicarResultado: false };
+  carregarPainelInicial().finally(() => setTimeout(mostrarTutorialPrimeiroAcesso, 250));
+
+}
+
+async function carregarPainelInicial() {
+  // Mostra cache local imediatamente; a planilha continua sendo a fonte oficial.
+  carregarCacheLocal();
+  aplicarFiltrosLocais();
+
+  try {
+    const resposta = await chamar('carregarInicial');
+    if (!resposta.sucesso) return;
+
+    STATE.criteriosCache = resposta.criterios || [];
+    if (resposta.usuarios) STATE.avaliadoresCache = resposta.usuarios;
+    if (resposta.fluxo) STATE.fluxo = resposta.fluxo;
+    // Confirma a regra em uma rota mínima própria, evitando qualquer valor antigo.
+    try { await sincronizarFluxoAvaliacao(); } catch (e) { console.error(e); }
+    STATE.submissoesCache = resposta.submissoes || [];
+    STATE.totalGeralCache = resposta.totalGeral || 0;
+    salvarCacheLocal();
+    aplicarFiltrosLocais();
+  } catch (erro) {
+    console.error(erro);
+  }
+}
+
+function salvarCacheLocal() {
+  try {
+    localStorage.setItem(CHAVE_CACHE, JSON.stringify({
+      salvoEm: Date.now(),
+      email: STATE.usuario && STATE.usuario.email,
+      submissoes: STATE.submissoesCache,
+      totalGeral: STATE.totalGeralCache
+    }));
+  } catch (e) {}
+}
+
+function carregarCacheLocal() {
+  try {
+    const c = JSON.parse(localStorage.getItem(CHAVE_CACHE) || 'null');
+    if (!c || c.email !== (STATE.usuario && STATE.usuario.email) || Date.now() - c.salvoEm > CACHE_TTL) return;
+    STATE.submissoesCache = c.submissoes || [];
+    STATE.totalGeralCache = c.totalGeral || 0;
+    // Critérios, usuários e regras de publicação não são restaurados do cache.
+    // Eles precisam refletir imediatamente as alterações feitas pela comissão.
+  } catch (e) {}
+}
+
+function invalidarCacheDados() {
+  // Invalida somente o cache persistente de submissões. O estado atual permanece
+  // visível até a atualização autoritativa terminar, evitando tela piscando.
+  try { localStorage.removeItem(CHAVE_CACHE); } catch (e) {}
+}
+
+function aplicarFiltrosLocais() {
+  const busca = document.getElementById('filtro-busca').value.trim().toLowerCase();
+  const eixo = document.getElementById('filtro-eixo').value;
+  const modalidade = document.getElementById('filtro-modalidade').value;
+  const status = document.getElementById('filtro-status').value;
+  const ehComissao = STATE.usuario && STATE.usuario.papel === 'Comissão';
+  const lista = (STATE.submissoesCache || []).filter(s => {
+    const ehDuplicado = s.status === 'Duplicado';
+    if (!ehComissao && ehDuplicado) return false;
+    if (ehComissao && ehDuplicado && status !== 'Duplicado') return false;
+
+    const texto = [s.codigo, s.titulo, ...(s.autores || [])].join(' ').toLowerCase();
+    return (!busca || texto.includes(busca)) && (!eixo || s.eixo === eixo) &&
+      (!modalidade || s.modalidade === modalidade) && (!status || s.status === status);
+  });
+  renderizarSubmissoes(lista, STATE.totalGeralCache);
+}
+
+const TITULOS_SECAO = {
+  submissoes: ['Submissões', ''],
+  guia: ['Guia do(a) Avaliador(a)', 'Orientações completas para usar o FPBF Avalia · Editorial'],
+  atribuicoes: ['Atribuições', 'Selecione e distribua vários trabalhos de uma vez'],
+  avaliadores: ['Avaliadores(as)', 'Cadastre e gerencie quem avalia cada eixo'],
+  criterios: ['Critérios de avaliação', 'Monte o formulário que os avaliadores vão preencher'],
+  configuracoes: ['Configurações', 'Regras gerais do sistema']
+};
+
+function irParaSecao(id) {
+
+  STATE.secaoAtual = id;
+
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.toggle('ativo', b.dataset.secao === id));
+  document.querySelectorAll('.secao').forEach(s => s.classList.remove('ativa'));
+
+  const secao = document.getElementById('secao-' + id);
+  secao.classList.add('ativa', 'fade-in');
+
+  const isAvaliador = STATE.usuario.papel !== 'Comissão';
+  const titulo = isAvaliador && id === 'submissoes' ? 'Meus Trabalhos' : TITULOS_SECAO[id][0];
+  document.getElementById('topbar-titulo').textContent = titulo;
+  document.getElementById('topbar-sub').textContent = TITULOS_SECAO[id][1] || '';
+
+  if (id === 'submissoes') aplicarFiltrosLocais();
+  if (id === 'atribuicoes') renderizarAtribuicoes();
+  if (id === 'avaliadores') carregarUsuarios();
+  if (id === 'criterios') renderizarEditorCriterios();
+  if (id === 'configuracoes') carregarConfiguracoes();
+}
+
+
+// =============================================================
+// SUBMISSÕES
+// =============================================================
+
+['filtro-busca', 'filtro-eixo', 'filtro-modalidade', 'filtro-status'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', aplicarFiltrosLocais);
+});
+
+async function carregarSubmissoes() {
+
+  const filtros = {
+    busca: document.getElementById('filtro-busca').value.trim(),
+    eixo: '',
+    modalidade: '',
+    status: document.getElementById('filtro-status').value
+  };
+
+  try {
+    const resposta = await chamar('listarSubmissoes', { filtros });
+    if (!resposta.sucesso) return;
+    STATE.submissoesCache = resposta.submissoes || [];
+    STATE.totalGeralCache = resposta.totalGeral || 0;
+    salvarCacheLocal();
+    aplicarFiltrosLocais();
+  } catch (erro) {
+    console.error(erro);
+  }
+}
+
+function renderizarSubmissoes(lista, totalGeral) {
+
+  const tbody = document.getElementById('tbody-submissoes');
+  const vazio = document.getElementById('submissoes-vazio');
+  const ehComissao = STATE.usuario.papel === 'Comissão';
+
+  document.getElementById('th-atribuido').style.display = ehComissao ? '' : 'none';
+
+  const statsEl = document.getElementById('stats-submissoes');
+  const mostrandoDuplicados = ehComissao && document.getElementById('filtro-status').value === 'Duplicado';
+  statsEl.innerHTML = ehComissao
+    ? (mostrandoDuplicados
+        ? `<div class="stats-card"><span class="numero">${lista.length}</span><span class="rotulo-stats">duplicata${lista.length === 1 ? '' : 's'} oculta${lista.length === 1 ? '' : 's'}</span></div>`
+        : `<div class="stats-card"><span class="numero">${totalGeral}</span><span class="rotulo-stats">trabalho${totalGeral === 1 ? '' : 's'} válido${totalGeral === 1 ? '' : 's'}</span></div>`)
+    : '';
+
+  vazio.style.display = lista.length ? 'none' : 'block';
+
+  tbody.innerHTML = lista.map(s => {
+
+    const celulaAtribuido = ehComissao ? `
+      <td>
+        ${s.atribuidoPara && s.atribuidoPara.length
+          ? s.atribuidoPara.map(nome => `<span class="atribuido-tag">${escapeHtml(nome)}</span>`).join('<br>')
+          : '<span class="atribuido-tag vazio">Não atribuído</span>'}
+      </td>
+    ` : '';
+
+    return `
+      <tr class="linha-clicavel" onclick="abrirDetalhe('${s.eixo}','${s.codigo}')">
+        <td>
+          <div class="titulo-cel">${escapeHtml(s.titulo)}
+            <span class="codigo">${s.codigo} · ${escapeHtml(s.autores.join(', '))}</span>
+          </div>
+        </td>
+        <td>${s.eixo}</td>
+        <td>Capítulo</td>
+        <td>${badgeStatus(s.status)}</td>
+        ${celulaAtribuido}
+        <td style="color:var(--fpbf-muted); font-size:12.5px;">${s.ultimaAtualizacao}</td>
+      </tr>
+    `;
+  }).join('');
+}
+
+
+// =============================================================
+// PAINEL DE DETALHE (slide-over)
+// =============================================================
+
+async function sincronizarFluxoAvaliacao() {
+  const resposta = await chamar('obterFluxoAvaliacao');
+  if (resposta && resposta.sucesso && resposta.fluxo) {
+    STATE.fluxo = {
+      quemNotificaAutor: String(resposta.fluxo.quemNotificaAutor || 'comissao').trim().toLowerCase() === 'avaliador' ? 'avaliador' : 'comissao',
+      permitirMultiplosAvaliadores: resposta.fluxo.permitirMultiplosAvaliadores,
+      podePublicarResultado: resposta.fluxo.podePublicarResultado === true
+    };
+  }
+  return STATE.fluxo;
+}
+
+async function abrirDetalhe(eixo, codigo) {
+
+  try {
+    // Regra de publicação é sempre lida diretamente da aba Configuracoes.
+    await sincronizarFluxoAvaliacao();
+    const [detalhe, avaliacoesOwn] = await Promise.all([
+      chamar('obterSubmissaoDetalhe', { eixo, codigo }),
+      Promise.resolve(null)
+    ]);
+
+    if (!detalhe.sucesso) { mostrarModalSite('Não foi possível abrir', detalhe.erro); return; }
+
+    STATE.submissaoAberta = detalhe;
+    renderizarPainelDetalhe(detalhe);
+
+    document.getElementById('overlay').classList.add('visivel');
+    document.getElementById('painel-detalhe').classList.add('visivel');
+
+  } catch (erro) {
+    mostrarModalSite('Ocorreu um erro', erro.message);
+  }
+}
+
+function fecharPainel() {
+  document.getElementById('overlay').classList.remove('visivel');
+  document.getElementById('painel-detalhe').classList.remove('visivel');
+  STATE.submissaoAberta = null;
+}
+
+document.getElementById('painel-fechar').addEventListener('click', fecharPainel);
+document.getElementById('overlay').addEventListener('click', fecharPainel);
+
+function renderizarPainelDetalhe(d) {
+
+  document.getElementById('detalhe-codigo').textContent = d.codigo;
+  document.getElementById('detalhe-eixo-modalidade').textContent = `${d.eixo} · ${d.modalidade}`;
+
+  const ehComissao = STATE.usuario.papel === 'Comissão';
+  const meuEmail = STATE.usuario.email;
+  const minhaAvaliacao = (d.avaliacoes || []).find(a => a.avaliador === meuEmail);
+  const estouAtribuido = (d.atribuicoes || []).some(a => a.avaliador === meuEmail);
+
+  let html = '';
+
+  // ---- dados gerais ----
+  const idV1 = extrairIdDrive(d.linkVersao1);
+  const idV2 = d.linkVersao2 ? extrairIdDrive(d.linkVersao2) : null;
+  const idAtual = idV2 || idV1;
+  const linkAtual = d.linkVersao2 || d.linkVersao1;
+
+  html += `
+    <div class="bloco">
+      <h3>Trabalho</h3>
+      <div class="linha-info"><span class="rotulo">Título</span><span class="valor">${escapeHtml(d.titulo)}</span></div>
+      <div class="linha-info"><span class="rotulo">Autores</span><span class="valor">${escapeHtml(d.autores.join(', '))}</span></div>
+      <div class="linha-info"><span class="rotulo">E-mail</span><span class="valor">${escapeHtml(d.email)}</span></div>
+      <div class="linha-info"><span class="rotulo">Enviado em</span><span class="valor">${d.dataEnvio}</span></div>
+    </div>
+
+    <div class="bloco">
+      <h3>Arquivo ${idV2 ? '(versão 2 - mais recente)' : ''}</h3>
+      ${idAtual ? `
+        <iframe src="https://drive.google.com/file/d/${idAtual}/preview"
+          style="width:100%; height:min(68vh,760px); border:1px solid var(--fpbf-border); border-radius:8px;"
+          allow="autoplay"></iframe>
+        <div style="margin-top:8px; display:flex; gap:16px;">
+          <a href="${linkAtual}" target="_blank">Abrir em nova aba ↗</a>
+          ${idV2 ? `<a href="${d.linkVersao1}" target="_blank" style="color:var(--fpbf-muted);">Ver versão 1 (original)</a>` : ''}
+        </div>
+      ` : `<a href="${linkAtual}" target="_blank">Abrir arquivo no Drive ↗</a>`}
+    </div>
+  `;
+
+  // ---- atribuição (só comissão e somente trabalhos válidos) ----
+  if (ehComissao && d.status !== 'Duplicado') {
+    const opcoesAvaliadores = STATE.avaliadoresCache
+      .filter(u => u.papel === 'Avaliador' && u.ativo && avaliadorPodeNoEixoUI(u, d.eixo))
+      .map(u => {
+        const conflito = avaliadorConflitaComSubmissaoUI(u, d);
+        const complemento = conflito ? ' — possível conflito de autoria' : '';
+        return `<option value="${escapeHtml(u.email)}" ${conflito ? 'disabled' : ''}>${escapeHtml(u.nome)}${escapeHtml(complemento)}</option>`;
+      }).join('');
+
+    html += `
+      <div class="bloco">
+        <h3>Atribuição</h3>
+        ${(d.atribuicoes || []).map(a => `
+          <div class="linha-info">
+            <span class="rotulo">${escapeHtml(a.avaliador)}</span>
+            <span class="valor">${badgeStatus(a.statusAvaliacao)}
+              <button class="btn-mini" onclick="removerAtribuicaoUI('${d.eixo}','${d.codigo}','${a.avaliador}')" style="margin-left:6px;">remover</button>
+            </span>
+          </div>
+        `).join('') || '<div style="color:var(--fpbf-muted); font-size:13px;">Nenhum(a) avaliador(a) atribuído(a) ainda.</div>'}
+
+        <div style="display:flex; gap:8px; margin-top:12px;">
+          <select id="select-atribuir" style="flex:1; padding:9px 12px; border:1px solid var(--fpbf-border); border-radius:8px;">
+            <option value="">Selecione um avaliador(a)...</option>
+            ${opcoesAvaliadores}
+          </select>
+          <button class="btn btn-secundario" style="width:auto;" onclick="atribuirUI('${d.eixo}','${d.codigo}')">Atribuir</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // ---- avaliações já enviadas ----
+  if (d.avaliacoes && d.avaliacoes.length) {
+    html += `<div class="bloco"><h3>Avaliações recebidas</h3>`;
+    d.avaliacoes.forEach(a => {
+      html += `
+        <div class="avaliacao-existente">
+          <div><span class="avaliador-nome">${escapeHtml(a.avaliador)}</span> — <span class="nota-media">${a.notaMedia}</span></div>
+          ${a.statusProposto ? `<div style="margin-top:6px;"><strong>Resultado proposto:</strong> ${badgeStatus(a.statusProposto)}</div>` : ''}${a.parecerProposto ? `<div style="margin-top:6px;"><strong>Parecer:</strong> ${escapeHtml(a.parecerProposto)}</div>` : ''}
+        </div>
+      `;
+    });
+    html += `</div>`;
+  }
+
+  // ---- formulário de avaliação (avaliador atribuído) ----
+  if (!ehComissao && estouAtribuido) {
+    html += `<div class="bloco"><h3>${minhaAvaliacao ? 'Sua avaliação' : 'Avaliar este trabalho'}</h3><div id="form-avaliacao"></div></div>`;
+  }
+
+
+// ---- resultado / parecer único ----
+if (ehComissao || estouAtribuido) {
+  const modoComissao = STATE.fluxo && STATE.fluxo.quemNotificaAutor === 'comissao';
+  const statusPermitidos = ehComissao
+    ? ['Correção solicitada','Aprovado','Reprovado','Duplicado']
+    : ['Correção solicitada','Aprovado','Reprovado'];
+  if (ehComissao && d.status === 'Duplicado') statusPermitidos.push('Recebido');
+  const proposta = !ehComissao && minhaAvaliacao ? minhaAvaliacao.statusProposto : '';
+  const parecerInicial = !ehComissao && minhaAvaliacao ? (minhaAvaliacao.parecerProposto || '') : (d.parecer || '');
+
+  let textoFluxo = '';
+  let textoBotao = '';
+  if (ehComissao) {
+    textoFluxo = modoComissao
+      ? 'A comissão controla a publicação. O autor e a página de acompanhamento só verão o resultado depois de clicar em “Liberar resultado ao autor”.'
+      : 'Os(as) avaliadores(as) podem publicar resultados. A comissão também pode corrigir ou publicar um resultado por aqui.';
+    textoBotao = d.status === 'Duplicado' ? 'Salvar alteração administrativa' : 'Liberar resultado ao autor';
+  } else {
+    textoFluxo = modoComissao
+      ? 'Sua avaliação será salva para revisão da comissão. O autor ainda não verá o status nem receberá e-mail.'
+      : 'Ao enviar, o status será publicado na página de acompanhamento e o autor receberá o e-mail correspondente.';
+    textoBotao = modoComissao ? 'Salvar avaliação para revisão da comissão' : 'Enviar resultado ao autor';
+  }
+
+  html += `
+    <div class="bloco">
+      <h3>Resultado da avaliação</h3>
+      <div class="fluxo-aviso">${textoFluxo}</div>
+      <div class="campo">
+        <label>Status recomendado</label>
+        <select id="select-status" ${ehComissao ? 'onchange="atualizarAcaoStatusComissao()"' : ''}>
+          <option value="">Selecione...</option>
+          ${statusPermitidos.map(s => `<option value="${s}" ${(proposta || d.status) === s ? 'selected' : ''}>${s === 'Duplicado' ? 'Duplicado (ocultar)' : (s === 'Recebido' && d.status === 'Duplicado' ? 'Recebido (restaurar)' : s)}</option>`).join('')}
+        </select>
+      </div>
+      <div class="campo">
+        <label>Parecer da Avaliação</label>
+        <textarea id="textarea-parecer" data-parecer-original="${escapeHtml(parecerInicial)}" placeholder="Escreva aqui o parecer que poderá ser apresentado ao autor...">${escapeHtml(parecerInicial)}</textarea>
+      </div>
+      <div class="acao-final-avaliacao">
+        ${ehComissao
+          ? `<button id="btn-publicar-resultado" class="btn btn-primary btn-acao-final" onclick="publicarResultadoUI('${d.eixo}','${d.codigo}')">${textoBotao}</button>`
+          : `<button class="btn btn-primary btn-acao-final" onclick="salvarAvaliacaoUI('${d.eixo}','${d.codigo}')">${textoBotao}</button>`}
+      </div>
+    </div>
+  `;
+}
+
+document.getElementById('painel-corpo').innerHTML = html;
+
+  if (ehComissao) atualizarAcaoStatusComissao();
+
+  if (!ehComissao && estouAtribuido) {
+    renderizarFormularioAvaliacao(d.eixo, d.codigo, minhaAvaliacao);
+  }
+}
+
+
+function normalizarEixosAvaliador(valor) {
+  if (Array.isArray(valor)) return valor.map(v => String(v).trim()).filter(Boolean);
+  const texto = String(valor || '').trim();
+  if (!texto) return [];
+  if (texto.toLowerCase() === 'todos') return ['Todos'];
+  return texto.split(',').map(v => v.trim()).filter(Boolean);
+}
+
+function avaliadorPodeNoEixoUI(avaliador, eixo) {
+  const eixos = normalizarEixosAvaliador(avaliador && avaliador.eixos);
+  return eixos.some(e => String(e).toLowerCase() === 'todos') || eixos.includes(String(eixo || '').trim());
+}
+
+function normalizarIdentidadeUI(valor) {
+  return String(valor || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9@._ -]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function avaliadorConflitaComSubmissaoUI(avaliador, submissao) {
+  if (!avaliador || !submissao) return false;
+  const emailAvaliador = normalizarIdentidadeUI(avaliador.email);
+  const nomeAvaliador = normalizarIdentidadeUI(avaliador.nome);
+  const autores = normalizarIdentidadeUI(Array.isArray(submissao.autores) ? submissao.autores.join('; ') : submissao.autores);
+  const emailAutor = normalizarIdentidadeUI(submissao.email);
+
+  if (emailAvaliador && emailAutor && emailAvaliador === emailAutor) return true;
+  if (emailAvaliador && autores.includes(emailAvaliador)) return true;
+  if (nomeAvaliador && nomeAvaliador.length >= 6 && autores && (autores.includes(nomeAvaliador) || nomeAvaliador.includes(autores))) return true;
+  const localEmail = (emailAvaliador.split('@')[0] || '');
+  if (localEmail.length >= 5 && autores.includes(localEmail)) return true;
+  return false;
+}
+
+function obterEstatisticasAvaliadorUI(email) {
+  email = String(email || '').trim().toLowerCase();
+  const estados = {};
+  let atribuidos = 0;
+  let avaliados = 0;
+  (STATE.submissoesCache || []).forEach(s => {
+    if (s.status === 'Duplicado') return;
+    const minhas = (s.atribuicoesResumo || []).filter(a => String(a.email || '').trim().toLowerCase() === email);
+    minhas.forEach(a => {
+      atribuidos++;
+      const sa = String(a.statusAvaliacao || '').trim().toLowerCase();
+      if (sa === 'concluída' || sa === 'concluida') avaliados++;
+      const status = String(s.status || 'Sem status').trim() || 'Sem status';
+      estados[status] = (estados[status] || 0) + 1;
+    });
+  });
+  return { atribuidos, avaliados, pendentes: Math.max(0, atribuidos - avaliados), estados };
+}
+
+function renderizarResumoAvaliadorUI(avaliador) {
+  const box = document.getElementById('resumo-avaliador-atribuicoes');
+  if (!box) return;
+  if (!avaliador) {
+    box.classList.remove('ativo');
+    box.innerHTML = '';
+    return;
+  }
+  const stats = obterEstatisticasAvaliadorUI(avaliador.email);
+  const ordem = ['Recebido', 'Em análise', 'Correção solicitada', 'Reenviado', 'Aprovado', 'Reprovado'];
+  const extras = Object.keys(stats.estados).filter(s => !ordem.includes(s));
+  const estados = ordem.concat(extras);
+  box.innerHTML = `
+    <div style="font-size:13px; font-weight:700; margin-bottom:10px;">Carga atual de ${escapeHtml(avaliador.nome)} <span style="font-weight:400; color:var(--fpbf-muted);">(todos os eixos)</span></div>
+    <div class="resumo-carga">
+      <div class="resumo-numero"><strong>${stats.atribuidos}</strong><span>trabalhos atribuídos</span></div>
+      <div class="resumo-numero"><strong>${stats.avaliados}</strong><span>avaliações concluídas</span></div>
+      <div class="resumo-numero"><strong>${stats.pendentes}</strong><span>avaliações pendentes</span></div>
+    </div>
+    <div style="font-size:11.5px; color:var(--fpbf-muted); margin-bottom:7px;">Estado atual dos trabalhos atribuídos</div>
+    <div class="resumo-estados">${estados.map(status => `<span class="estado-contagem">${escapeHtml(status)} <strong>${stats.estados[status] || 0}</strong></span>`).join('')}</div>
+  `;
+  box.classList.add('ativo');
+}
+
+function renderizarAtribuicoes() {
+  if (!STATE.usuario || STATE.usuario.papel !== 'Comissão') return;
+  atualizarFiltroAvaliadoresPorEixo(true);
+}
+
+function atualizarFiltroAvaliadoresPorEixo(preservarSelecao) {
+  fecharDistribuicaoUniformeUI();
+  const eixoSel = document.getElementById('atrib-lote-eixo');
+  const sel = document.getElementById('atrib-lote-avaliador');
+  const lista = document.getElementById('lista-atribuicoes');
+  if (!eixoSel || !sel) return;
+  const eixo = String(eixoSel.value || '').trim();
+  const valorAtual = preservarSelecao ? String(sel.value || '').trim().toLowerCase() : '';
+  if (!eixo) {
+    sel.disabled = true;
+    sel.innerHTML = '<option value="">Selecione o eixo primeiro...</option>';
+    if (lista) lista.innerHTML = '<div class="estado-vazio">Selecione um eixo para visualizar somente os(as) avaliadores(as) cadastrados(as) nele.</div>';
+    renderizarResumoAvaliadorUI(null);
+    atualizarContadorAtribuicoes();
+    return;
+  }
+  const avaliadores = (STATE.avaliadoresCache || []).filter(u => u.papel === 'Avaliador' && u.ativo && avaliadorPodeNoEixoUI(u, eixo));
+  sel.disabled = false;
+  sel.innerHTML = '<option value="">Selecione o(a) avaliador(a)...</option>' + avaliadores.map(u => {
+    const stats = obterEstatisticasAvaliadorUI(u.email);
+    return `<option value="${escapeHtml(u.email)}">${escapeHtml(u.nome)} — ${stats.atribuidos} atribuídos · ${stats.avaliados} avaliados</option>`;
+  }).join('');
+  if (valorAtual && avaliadores.some(u => String(u.email || '').trim().toLowerCase() === valorAtual)) sel.value = valorAtual;
+  renderizarListaAtribuicoesPorAvaliador();
+}
+
+function renderizarListaAtribuicoesPorAvaliador() {
+  const lista = document.getElementById('lista-atribuicoes');
+  const sel = document.getElementById('atrib-lote-avaliador');
+  const eixoSel = document.getElementById('atrib-lote-eixo');
+  if (!lista || !sel || !eixoSel) return;
+  const eixo = String(eixoSel.value || '').trim();
+  const email = String(sel.value || '').trim().toLowerCase();
+  if (!eixo) {
+    lista.innerHTML = '<div class="estado-vazio">Selecione primeiro um eixo.</div>';
+    renderizarResumoAvaliadorUI(null);
+    atualizarContadorAtribuicoes();
+    return;
+  }
+  if (!email) {
+    lista.innerHTML = '<div class="estado-vazio">Agora selecione um(a) avaliador(a) cadastrado(a) neste eixo.</div>';
+    renderizarResumoAvaliadorUI(null);
+    atualizarContadorAtribuicoes();
+    return;
+  }
+  const avaliador = (STATE.avaliadoresCache || []).find(u => String(u.email || '').trim().toLowerCase() === email);
+  if (!avaliador) {
+    lista.innerHTML = '<div class="estado-vazio">Avaliador(a) não encontrado(a).</div>';
+    renderizarResumoAvaliadorUI(null);
+    atualizarContadorAtribuicoes();
+    return;
+  }
+  renderizarResumoAvaliadorUI(avaliador);
+  const trabalhosCompativeis = (STATE.submissoesCache || []).filter(s => String(s.eixo || '').trim() === eixo && s.status !== 'Duplicado');
+  const multiplos = STATE.fluxo && STATE.fluxo.permitirMultiplosAvaliadores === 'true';
+  lista.innerHTML = trabalhosCompativeis.map(s => {
+    const ja = s.atribuidoPara && s.atribuidoPara.length > 0;
+    const conflito = avaliadorConflitaComSubmissaoUI(avaliador, s);
+    const bloqueadoAtribuicao = ja && !multiplos;
+    const bloqueado = conflito || bloqueadoAtribuicao;
+    const classes = [bloqueadoAtribuicao ? 'ja-atribuido' : '', conflito ? 'conflito-autoria' : ''].filter(Boolean).join(' ');
+    let lateral = '';
+    if (conflito) lateral = '<div class="alerta-conflito">⚠ Possível conflito de autoria<br><span style="font-weight:400;">não pode ser atribuído</span></div>';
+    else if (ja) lateral = `<div style="font-size:12px; text-align:right;">Já atribuído: ${s.atribuidoPara.map(escapeHtml).join(', ')}</div>`;
+    else lateral = '<div style="font-size:12px; text-align:right;"><span style="color:var(--fpbf-success);">Livre</span></div>';
+    return `<label class="atribuicao-item ${classes}">
+      <input type="checkbox" class="chk-atrib-lote" data-eixo="${escapeHtml(s.eixo)}" data-codigo="${escapeHtml(s.codigo)}" ${bloqueado ? 'disabled' : ''} onchange="atualizarContadorAtribuicoes()">
+      <div><strong>${escapeHtml(s.codigo)} — ${escapeHtml(s.titulo)}</strong><div class="meta">${escapeHtml(s.eixo)} · Capítulo · ${escapeHtml(s.status)} · Autores: ${escapeHtml((s.autores || []).join('; '))}</div></div>
+      ${lateral}
+    </label>`;
+  }).join('') || '<div class="estado-vazio">Nenhum trabalho encontrado neste eixo.</div>';
+  atualizarContadorAtribuicoes();
+}
+
+
+function obterCargaAvaliadorNoEixoUI(email, eixo) {
+  email = String(email || '').trim().toLowerCase();
+  eixo = String(eixo || '').trim();
+  let n = 0;
+  (STATE.submissoesCache || []).forEach(s => {
+    if (s.status === 'Duplicado') return;
+    if (String(s.eixo || '').trim() !== eixo) return;
+    (s.atribuicoesResumo || []).forEach(a => {
+      if (String(a.email || '').trim().toLowerCase() === email) n++;
+    });
+  });
+  return n;
+}
+
+function fecharDistribuicaoUniformeUI() {
+  const box = document.getElementById('distribuicao-uniforme-preview');
+  if (!box) return;
+  box.classList.remove('ativo');
+  box.innerHTML = '';
+}
+
+function avaliadoresElegiveisParaTrabalhoUI(avaliadores, trabalho) {
+  return (avaliadores || []).filter(a => !avaliadorConflitaComSubmissaoUI(a, trabalho));
+}
+
+function gerarDistribuicaoUniformeUI() {
+  const eixo = String((document.getElementById('atrib-lote-eixo') || {}).value || '').trim();
+  if (!eixo) return mostrarModalSite('Selecione o eixo', 'Escolha primeiro o eixo que será distribuído.');
+
+  const avaliadores = (STATE.avaliadoresCache || []).filter(u => u.papel === 'Avaliador' && u.ativo && avaliadorPodeNoEixoUI(u, eixo));
+  if (!avaliadores.length) return mostrarModalSite('Sem avaliadores(as)', 'Não há avaliadores(as) ativos(as) cadastrados(as) neste eixo.');
+
+  // A distribuição automática trabalha somente com trabalhos ainda sem nenhuma atribuição.
+  // O equilíbrio considera a carga GERAL de cada avaliador(a), somando todos os eixos.
+  const trabalhos = (STATE.submissoesCache || [])
+    .filter(s => String(s.eixo || '').trim() === eixo && s.status !== 'Duplicado' && !(s.atribuidoPara && s.atribuidoPara.length))
+    .slice()
+    .sort((a,b) => String(a.codigo || '').localeCompare(String(b.codigo || ''), 'pt-BR', {numeric:true}));
+
+  if (!trabalhos.length) return mostrarModalSite('Nada para distribuir', 'Todos os trabalhos deste eixo já possuem atribuição.');
+
+  const cargaTotal = {};
+  const propostaExtra = {};
+  avaliadores.forEach(a => {
+    const email = String(a.email || '').trim().toLowerCase();
+    cargaTotal[email] = obterEstatisticasAvaliadorUI(email).atribuidos;
+    propostaExtra[email] = 0;
+  });
+
+  const proposta = trabalhos.map(trabalho => {
+    const candidatos = avaliadoresElegiveisParaTrabalhoUI(avaliadores, trabalho).slice();
+    candidatos.sort((a,b) => {
+      const ea = String(a.email || '').trim().toLowerCase();
+      const eb = String(b.email || '').trim().toLowerCase();
+      const ca = (cargaTotal[ea] || 0) + (propostaExtra[ea] || 0);
+      const cb = (cargaTotal[eb] || 0) + (propostaExtra[eb] || 0);
+      if (ca !== cb) return ca - cb;
+      return String(a.nome || '').localeCompare(String(b.nome || ''), 'pt-BR');
+    });
+    const escolhido = candidatos[0] || null;
+    if (escolhido) propostaExtra[String(escolhido.email || '').trim().toLowerCase()]++;
+    return { trabalho, avaliadorEmail: escolhido ? String(escolhido.email || '').trim().toLowerCase() : '' };
+  });
+
+  renderizarPreviewDistribuicaoUniformeUI(eixo, avaliadores, proposta, cargaTotal);
+}
+
+function renderizarPreviewDistribuicaoUniformeUI(eixo, avaliadores, proposta, cargaTotal) {
+  const box = document.getElementById('distribuicao-uniforme-preview');
+  if (!box) return;
+  box.dataset.eixo = eixo;
+  box._avaliadores = avaliadores;
+  box._proposta = proposta;
+  box._cargaTotal = cargaTotal;
+
+  const linhas = proposta.map((p, idx) => {
+    const elegiveis = avaliadoresElegiveisParaTrabalhoUI(avaliadores, p.trabalho);
+    const opcoes = elegiveis.map(a => {
+      const email = String(a.email || '').trim().toLowerCase();
+      const sel = email === p.avaliadorEmail ? ' selected' : '';
+      return `<option value="${escapeHtml(email)}"${sel}>${escapeHtml(a.nome)} — ${cargaTotal[email] || 0} atribuído(s) no total</option>`;
+    }).join('');
+    const sem = !elegiveis.length;
+    return `<div class="distribuicao-linha ${sem ? 'sem-opcao' : ''}">
+      <div><strong>${escapeHtml(p.trabalho.codigo)} — ${escapeHtml(p.trabalho.titulo)}</strong><div class="meta">${escapeHtml(p.trabalho.modalidade)} · ${escapeHtml(p.trabalho.status)} · Autores: ${escapeHtml((p.trabalho.autores || []).join('; '))}</div>${sem ? '<div class="alerta-conflito" style="margin-top:6px;">⚠ Nenhum(a) avaliador(a) disponível sem conflito de autoria.</div>' : ''}</div>
+      <select class="select-distribuicao-uniforme" data-index="${idx}" onchange="atualizarPreviewDistribuicaoUniformeUI()" ${sem ? 'disabled' : ''}>
+        ${sem ? '<option value="">Sem avaliador(a) disponível</option>' : opcoes}
+      </select>
+    </div>`;
+  }).join('');
+
+  box.innerHTML = `
+    <div class="distribuicao-uniforme-topo">
+      <div><h3>Prévia da distribuição uniforme</h3><div style="font-size:13px;color:var(--fpbf-muted);max-width:760px;line-height:1.55;">Nada será atribuído ainda. O sistema considera a carga geral de cada avaliador(a), somando os trabalhos já atribuídos em <strong>todos os eixos</strong>, e distribui apenas os trabalhos ainda livres do eixo selecionado. Você pode alterar qualquer avaliador(a) abaixo antes de confirmar.</div></div>
+      <button type="button" class="btn btn-secundario" style="width:auto;" onclick="fecharDistribuicaoUniformeUI()">Fechar prévia</button>
+    </div>
+    <div id="resumo-distribuicao-uniforme" class="distribuicao-uniforme-resumo"></div>
+    <div class="distribuicao-linhas">${linhas}</div>
+    <div class="distribuicao-acoes">
+      <button type="button" class="btn btn-secundario" style="width:auto;" onclick="gerarDistribuicaoUniformeUI()">Refazer distribuição</button>
+      <button type="button" class="btn btn-primary" style="width:auto;" onclick="confirmarDistribuicaoUniformeUI()">Confirmar e atribuir</button>
+    </div>`;
+  box.classList.add('ativo');
+  atualizarPreviewDistribuicaoUniformeUI();
+  box.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function atualizarPreviewDistribuicaoUniformeUI() {
+  const box = document.getElementById('distribuicao-uniforme-preview');
+  if (!box || !box.classList.contains('ativo')) return;
+  const avaliadores = box._avaliadores || [];
+  const cargaTotal = box._cargaTotal || {};
+  const novos = {};
+  avaliadores.forEach(a => novos[String(a.email || '').trim().toLowerCase()] = 0);
+  box.querySelectorAll('.select-distribuicao-uniforme').forEach(sel => {
+    const email = String(sel.value || '').trim().toLowerCase();
+    if (email) novos[email] = (novos[email] || 0) + 1;
+  });
+  const resumo = document.getElementById('resumo-distribuicao-uniforme');
+  if (!resumo) return;
+  resumo.innerHTML = avaliadores.map(a => {
+    const email = String(a.email || '').trim().toLowerCase();
+    const atual = cargaTotal[email] || 0;
+    const add = novos[email] || 0;
+    return `<div class="distribuicao-carga"><strong>${escapeHtml(a.nome)}</strong>${atual} atual(is) em todos os eixos + ${add} novo(s) → <b>${atual + add}</b> no total</div>`;
+  }).join('');
+}
+
+async function confirmarDistribuicaoUniformeUI() {
+  const box = document.getElementById('distribuicao-uniforme-preview');
+  if (!box || !box.classList.contains('ativo')) return;
+  const proposta = box._proposta || [];
+  const itens = [];
+  let semAvaliador = 0;
+  box.querySelectorAll('.select-distribuicao-uniforme').forEach(sel => {
+    const idx = Number(sel.dataset.index);
+    const p = proposta[idx];
+    if (!p) return;
+    const email = String(sel.value || '').trim().toLowerCase();
+    if (!email) { semAvaliador++; return; }
+    itens.push({ eixo: String(p.trabalho.eixo || ''), codigo: String(p.trabalho.codigo || ''), avaliadorEmail: email });
+  });
+  if (semAvaliador) return mostrarModalSite('Revise a distribuição', `${semAvaliador} trabalho${semAvaliador === 1 ? '' : 's'} não possui${semAvaliador === 1 ? '' : 'em'} avaliador(a) disponível sem conflito de autoria.`);
+  if (!itens.length) return mostrarModalSite('Nada para atribuir', 'A prévia não possui trabalhos válidos para atribuição.');
+
+  const emails = [...new Set(itens.map(i => i.avaliadorEmail))];
+  const ok = await confirmarModalSite('Confirmar distribuição?', `Serão atribuídos ${itens.length} trabalho${itens.length === 1 ? '' : 's'} entre ${emails.length} avaliador${emails.length === 1 ? '(a)' : 'es(as)'}. Esta é a última confirmação; a prévia pode ser alterada antes deste passo.`);
+  if (!ok) return;
+
+  try {
+    const r = await chamar('atribuirDistribuicaoPlanejada', { itens });
+    if (!r || !r.sucesso) throw new Error((r && r.erro) || 'Não foi possível concluir a distribuição.');
+    invalidarCacheDados();
+    await carregarSubmissoes();
+    await sincronizarFluxoAvaliacao();
+    fecharDistribuicaoUniformeUI();
+    renderizarAtribuicoes();
+    const ignorados = (r.ignorados || []).length;
+    const conflitos = (r.conflitosAutoria || []).length;
+    const falhasEmail = (r.falhasEmail || []).length;
+    let msg = `${r.atribuidos || 0} trabalho${r.atribuidos === 1 ? '' : 's'} distribuído${r.atribuidos === 1 ? '' : 's'} com sucesso entre ${r.avaliadoresNotificados || 0} avaliador${r.avaliadoresNotificados === 1 ? '(a)' : 'es(as)'}.`;
+    if (ignorados) msg += ` ${ignorados} item(ns) foi(ram) ignorado(s) porque a situação mudou ou já havia atribuição.`;
+    if (conflitos) msg += ` ${conflitos} item(ns) foi(ram) bloqueado(s) por conflito de autoria.`;
+    if (falhasEmail) msg += ` Houve falha no envio de ${falhasEmail} notificação(ões) por e-mail, mas as atribuições correspondentes foram salvas.`;
+    mostrarModalSite('Distribuição concluída', msg);
+  } catch (e) {
+    mostrarModalSite('Erro na distribuição', e.message);
+  }
+}
+
+function atualizarContadorAtribuicoes() {
+  const n = document.querySelectorAll('.chk-atrib-lote:checked').length;
+  const el = document.getElementById('contador-atribuicoes');
+  if (el) el.textContent = `${n} selecionado${n === 1 ? '' : 's'}`;
+}
+
+function selecionarTodosLivres() {
+  document.querySelectorAll('.chk-atrib-lote:not(:disabled)').forEach(c => c.checked = true);
+  atualizarContadorAtribuicoes();
+}
+
+async function atribuirSelecionadosUI() {
+  const avaliadorEmail = document.getElementById('atrib-lote-avaliador').value;
+  const itens = [...document.querySelectorAll('.chk-atrib-lote:checked')].map(c => ({eixo:c.dataset.eixo, codigo:c.dataset.codigo}));
+  if (!avaliadorEmail) return mostrarModalSite('Selecione o(a) avaliador(a)', 'Escolha o(a) avaliador(a) que receberá os trabalhos selecionados.');
+  if (!itens.length) return mostrarModalSite('Selecione os trabalhos', 'Marque pelo menos um trabalho livre.');
+
+  const ok = await confirmarModalSite('Confirmar atribuição?', `Você vai atribuir ${itens.length} trabalho${itens.length === 1 ? '' : 's'} ao(à) avaliador(a) selecionado(a).`);
+  if (!ok) return;
+
+  try {
+    const r = await chamar('atribuirAvaliadorEmLote', { itens, avaliadorEmail });
+    if (!r || !r.sucesso) throw new Error((r && r.erro) || 'Não foi possível concluir a atribuição.');
+    invalidarCacheDados();
+    await carregarSubmissoes();
+    await sincronizarFluxoAvaliacao();
+    renderizarAtribuicoes();
+    const msgEmail = r.emailEnviado === false ? ' A atribuição foi salva, mas o e-mail de notificação não pôde ser enviado.' : (r.emailEnviado === true ? ' O(a) avaliador(a) foi notificado(a) por e-mail.' : '');
+    const msgConflitos = (r.conflitosAutoria || []).length ? ` ${(r.conflitosAutoria || []).length} trabalho${r.conflitosAutoria.length === 1 ? '' : 's'} não ${r.conflitosAutoria.length === 1 ? 'foi' : 'foram'} atribuído${r.conflitosAutoria.length === 1 ? '' : 's'} por possível conflito de autoria.` : '';
+    mostrarModalSite('Atribuição concluída', `${r.atribuidos || 0} trabalho${r.atribuidos === 1 ? '' : 's'} atribuído${r.atribuidos === 1 ? '' : 's'} com sucesso.` + ((r.ignorados || []).length ? ` ${r.ignorados.length} já estava(m) atribuído(s) e foi(ram) mantido(s).` : '') + msgConflitos + msgEmail);
+  } catch (e) { mostrarModalSite('Erro na atribuição', e.message); }
+}
+
+async function atribuirUI(eixo, codigo) {
+  const email = document.getElementById('select-atribuir').value;
+  if (!email) return;
+
+  try {
+    const r = await chamar('atribuirAvaliador', { eixo, codigo, avaliadorEmail: email });
+    abrirDetalhe(eixo, codigo);
+    carregarSubmissoes();
+    if (r && r.emailEnviado === false) {
+      mostrarModalSite('Atribuição salva', 'O trabalho foi atribuído, mas o e-mail de notificação não pôde ser enviado.');
+    }
+  } catch (erro) { mostrarModalSite('Ocorreu um erro', erro.message); }
+}
+
+async function removerAtribuicaoUI(eixo, codigo, avaliadorEmail) {
+  try {
+    await chamar('removerAtribuicao', { eixo, codigo, avaliadorEmail });
+    abrirDetalhe(eixo, codigo);
+  } catch (erro) { mostrarModalSite('Ocorreu um erro', erro.message); }
+}
+
+
+function atualizarAcaoStatusComissao() {
+  if (!STATE.usuario || STATE.usuario.papel !== 'Comissão') return;
+  const select = document.getElementById('select-status');
+  const botao = document.getElementById('btn-publicar-resultado');
+  const aviso = document.querySelector('#painel-corpo .fluxo-aviso');
+  if (!select || !botao) return;
+
+  if (select.value === 'Duplicado') {
+    botao.textContent = 'Marcar como duplicado e ocultar';
+    if (aviso) aviso.textContent = 'Ação administrativa: o trabalho será ocultado dos avaliadores, retirado das atribuições e nenhum e-mail será enviado ao autor.';
+  } else if (select.value === 'Recebido' && STATE.submissaoAberta && STATE.submissaoAberta.status === 'Duplicado') {
+    botao.textContent = 'Restaurar como Recebido';
+    if (aviso) aviso.textContent = 'Ação administrativa: o trabalho voltará ao fluxo normal como Recebido. Nenhum e-mail será enviado ao autor.';
+  } else {
+    botao.textContent = 'Liberar resultado ao autor';
+    if (aviso) aviso.textContent = (STATE.fluxo && STATE.fluxo.quemNotificaAutor === 'comissao')
+      ? 'A comissão controla a publicação. O autor e a página de acompanhamento só verão o resultado depois de clicar em “Liberar resultado ao autor”.'
+      : 'Os(as) avaliadores(as) podem publicar resultados. A comissão também pode corrigir ou publicar um resultado por aqui.';
+  }
+}
+
+
+async function publicarResultadoUI(eixo, codigo) {
+  const novoStatus = document.getElementById('select-status').value;
+  const parecer = document.getElementById('textarea-parecer').value.trim();
+  if (!novoStatus) return mostrarModalSite('Selecione o resultado', 'Escolha um status compatível antes de liberar o resultado.');
+
+  let tituloConfirmacao = 'Liberar resultado ao autor?';
+  let textoConfirmacao = 'Esta ação atualizará a página de acompanhamento e enviará o e-mail correspondente ao autor.';
+
+  if (novoStatus === 'Duplicado') {
+    tituloConfirmacao = 'Marcar como duplicado?';
+    textoConfirmacao = 'O trabalho será ocultado dos avaliadores e retirado das atribuições. O parecer informado ficará salvo. Nenhum e-mail será enviado ao autor.';
+  } else if (novoStatus === 'Recebido' && STATE.submissaoAberta && STATE.submissaoAberta.status === 'Duplicado') {
+    tituloConfirmacao = 'Restaurar este trabalho?';
+    textoConfirmacao = 'O trabalho voltará ao fluxo normal com status Recebido. Nenhum e-mail será enviado ao autor.';
+  }
+
+  const ok = await confirmarModalSite(tituloConfirmacao, textoConfirmacao);
+  if (!ok) return;
+
+  try {
+    const resposta = await chamar('atualizarStatusSubmissao', { eixo, codigo, novoStatus, parecer });
+    if (!resposta || !resposta.sucesso) throw new Error((resposta && resposta.erro) || 'Não foi possível liberar o resultado.');
+    if (resposta.administrativo) {
+      mostrarModalSite(
+        resposta.status === 'Duplicado' ? 'Duplicata ocultada' : 'Trabalho restaurado',
+        resposta.status === 'Duplicado'
+          ? 'O trabalho foi marcado como Duplicado e saiu do fluxo dos avaliadores.'
+          : 'O trabalho foi restaurado como Recebido e voltou ao fluxo normal.'
+      );
+    } else {
+      mostrarModalSite('Resultado liberado', 'O status foi publicado e o e-mail correspondente foi enviado ao autor.');
+    }
+    fecharPainel();
+    invalidarCacheDados();
+    await carregarSubmissoes();
+    aplicarFiltrosLocais();
+  } catch (erro) { mostrarModalSite('Não foi possível liberar', erro.message); }
+}
+
+
+// =============================================================
+// FORMULÁRIO DE AVALIAÇÃO (dinâmico, a partir dos critérios)
+// =============================================================
+
+function renderizarFormularioAvaliacao(eixo, codigo, avaliacaoExistente) {
+
+  const notasIniciais = (avaliacaoExistente && avaliacaoExistente.notas) || {};
+  const container = document.getElementById('form-avaliacao');
+
+  if (!STATE.criteriosCache.length) {
+    container.innerHTML = '<p style="color:var(--fpbf-muted); font-size:13px;">Nenhum critério de avaliação configurado ainda.</p>';
+    return;
+  }
+
+  let html = '';
+
+  STATE.criteriosCache.forEach(c => {
+    const valorInicial = notasIniciais[c.id] !== undefined ? Number(notasIniciais[c.id]) : Math.round(c.escalaMax / 2);
+    const opcoes = Array.from({ length: Number(c.escalaMax) + 1 }, (_, nota) => `
+      <button type="button" class="escala-opcao ${nota === valorInicial ? 'ativa' : ''}"
+        data-valor="${nota}" onclick="selecionarNotaCriterio('${c.id}', ${nota}, this)"
+        aria-label="Nota ${nota} de ${c.escalaMax}" aria-pressed="${nota === valorInicial}">${nota}</button>
+    `).join('');
+
+    html += `
+      <div class="criterio-linha">
+        <div class="criterio-topo">
+          <span class="criterio-nome">${escapeHtml(c.nome)}</span>
+          <span class="criterio-nota" id="valor-${c.id}">${valorInicial} / ${c.escalaMax}</span>
+        </div>
+        ${c.descricao ? `<div class="criterio-desc">${escapeHtml(c.descricao)}</div>` : ''}
+        <div class="escala-nota" data-escala="${c.id}">${opcoes}</div>
+        <div class="escala-legenda"><span>Menor nota</span><span>Maior nota</span></div>
+        <input type="hidden" class="criterio-valor" data-criterio="${c.id}" value="${valorInicial}">
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+function selecionarNotaCriterio(criterioId, valor, botao) {
+  const escala = botao.closest('.escala-nota');
+  if (!escala) return;
+
+  escala.querySelectorAll('.escala-opcao').forEach(opcao => {
+    const ativa = opcao === botao;
+    opcao.classList.toggle('ativa', ativa);
+    opcao.setAttribute('aria-pressed', ativa ? 'true' : 'false');
+  });
+
+  const input = document.querySelector(`#form-avaliacao .criterio-valor[data-criterio="${criterioId}"]`);
+  if (input) input.value = valor;
+
+  const criterio = STATE.criteriosCache.find(c => String(c.id) === String(criterioId));
+  const max = criterio ? criterio.escalaMax : '';
+  const exibicao = document.getElementById(`valor-${criterioId}`);
+  if (exibicao) exibicao.textContent = `${valor} / ${max}`;
+}
+
+
+async function salvarAvaliacaoUI(eixo, codigo) {
+  const notas = {};
+  document.querySelectorAll('#form-avaliacao .criterio-valor').forEach(input => {
+    notas[input.dataset.criterio] = Number(input.value);
+  });
+
+  const statusEl = document.getElementById('select-status');
+  const parecerEl = document.getElementById('textarea-parecer');
+  const novoStatus = statusEl ? statusEl.value : '';
+  const parecer = parecerEl ? parecerEl.value.trim() : '';
+  const parecerOriginal = parecerEl ? String(parecerEl.dataset.parecerOriginal || '').trim() : '';
+
+  if (!novoStatus) {
+    return mostrarModalSite('Selecione o resultado', 'Escolha o status recomendado para concluir sua avaliação.');
+  }
+
+  if (parecer === parecerOriginal) {
+    const continuarSemAlterar = await confirmarModalSite(
+      'Parecer não foi alterado',
+      'Você não modificou o parecer. Se continuar e esta avaliação for publicada, o autor receberá novamente o mesmo parecer. Deseja enviar assim mesmo?'
+    );
+    if (!continuarSemAlterar) return;
+  }
+
+  const modoComissao = !(STATE.fluxo && STATE.fluxo.podePublicarResultado === true);
+  const texto = modoComissao
+    ? 'Sua avaliação será enviada para revisão da comissão. O autor ainda não receberá o resultado.'
+    : 'O resultado será publicado para o autor e o e-mail correspondente será enviado.';
+  const ok = await confirmarModalSite('Concluir avaliação?', texto);
+  if (!ok) return;
+
+  try {
+    const resposta = await chamar('salvarAvaliacao', {
+      eixo, codigo, notas, comentarioGeral: '', novoStatus, parecer
+    });
+    if (!resposta || !resposta.sucesso) throw new Error((resposta && resposta.erro) || 'Não foi possível salvar a avaliação.');
+
+    fecharPainel();
+    invalidarCacheDados();
+    // Aguarda a planilha responder antes de devolver o usuário à lista, para que
+    // status e atribuições apareçam atualizados imediatamente.
+    await carregarSubmissoes();
+    aplicarFiltrosLocais();
+
+    if (resposta.aguardandoComissao) {
+      mostrarModalSite('Avaliação salva', 'Sua avaliação foi registrada e está aguardando a liberação da comissão.');
+    } else {
+      mostrarModalSite('Resultado enviado', 'A avaliação foi registrada e o resultado foi publicado ao autor.');
+    }
+  } catch (erro) { mostrarModalSite('Erro ao salvar avaliação', erro.message); }
+}
+
+
+// =============================================================
+// AVALIADORES (comissão)
+// =============================================================
+
+async function carregarAvaliadoresCache() {
+  try {
+    const resposta = await chamar('listarUsuarios');
+    if (resposta.sucesso) STATE.avaliadoresCache = resposta.usuarios;
+  } catch (erro) { console.error(erro); }
+}
+
+async function carregarUsuarios() {
+
+  await carregarAvaliadoresCache();
+
+  const tbody = document.getElementById('tbody-usuarios');
+
+  tbody.innerHTML = STATE.avaliadoresCache.map(u => `
+    <tr>
+      <td>${escapeHtml(u.nome)}</td>
+      <td>${escapeHtml(u.email)}</td>
+      <td>${u.papel}</td>
+      <td style="color:var(--fpbf-muted); font-size:12.5px;">${escapeHtml(u.eixos)}</td>
+      <td>${u.ativo ? badgeStatus('Aprovado') : badgeStatus('Reprovado')}</td>
+      <td>
+        <div class="acoes-linha">
+          <button class="btn-mini" onclick="redefinirSenhaUI('${u.email}')">redefinir senha</button>
+          ${u.ativo ? `<button class="btn-mini" onclick="desativarUsuarioUI('${u.email}')">desativar</button>` : ''}
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+document.getElementById('form-usuario').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const nome = document.getElementById('usuario-nome-input').value.trim();
+  const email = document.getElementById('usuario-email-input').value.trim();
+  const papel = document.getElementById('usuario-papel-input').value;
+  const eixos = Array.from(document.querySelectorAll('#secao-avaliadores .checkbox-item input:checked')).map(c => c.value);
+
+  const btn = document.getElementById('btn-add-usuario');
+  limparMensagem('usuario-mensagem');
+  btn.disabled = true;
+
+  try {
+    const resposta = await chamar('adicionarUsuario', { dados: { nome, email, papel, eixos } });
+
+    if (!resposta.sucesso) {
+      mostrarMensagem('usuario-mensagem', 'erro', resposta.erro);
+      return;
+    }
+
+    mostrarMensagem('usuario-mensagem', 'sucesso', 'Usuário adicionado! A senha foi enviada por e-mail (lembre de avisar para checar o spam).');
+    document.getElementById('form-usuario').reset();
+    carregarUsuarios();
+
+  } catch (erro) {
+    mostrarMensagem('usuario-mensagem', 'erro', erro.message);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+async function desativarUsuarioUI(email) {
+  if (!(await confirmarModalSite('Desativar usuário?', 'Ele não conseguirá mais entrar no sistema.'))) return;
+  try {
+    await chamar('desativarUsuario', { emailAlvo: email });
+    carregarUsuarios();
+  } catch (erro) { mostrarModalSite('Ocorreu um erro', erro.message); }
+}
+
+async function redefinirSenhaUI(email) {
+  if (!(await confirmarModalSite('Redefinir senha?', 'Uma nova senha será gerada e enviada para ' + email + '.'))) return;
+  try {
+    await chamar('redefinirSenha', { emailAlvo: email });
+    mostrarModalSite('Senha redefinida', 'Uma nova senha foi enviada por e-mail.');
+  } catch (erro) { mostrarModalSite('Ocorreu um erro', erro.message); }
+}
+
+
+// =============================================================
+// CRITÉRIOS DE AVALIAÇÃO (comissão)
+// =============================================================
+
+async function carregarCriteriosCache() {
+  try {
+    const resposta = await chamar('listarCriterios');
+    if (resposta.sucesso) STATE.criteriosCache = resposta.criterios;
+  } catch (erro) { console.error(erro); }
+}
+
+function renderizarEditorCriterios() {
+
+  const container = document.getElementById('lista-criterios');
+
+  function desenhar() {
+    container.innerHTML = STATE.criteriosCache.map((c, i) => `
+      <div class="criterio-editor-linha">
+        <div>
+          <input type="text" placeholder="Nome do critério" value="${escapeHtml(c.nome)}"
+            oninput="STATE.criteriosCache[${i}].nome = this.value" style="margin-bottom:6px;">
+          <textarea placeholder="Descrição (opcional)" style="min-height:40px;"
+            oninput="STATE.criteriosCache[${i}].descricao = this.value">${escapeHtml(c.descricao || '')}</textarea>
+        </div>
+        <div>
+          <label style="font-size:11.5px; color:var(--fpbf-muted); display:block; margin-bottom:4px;">Nota máx.</label>
+          <input type="number" min="1" max="20" value="${c.escalaMax}"
+            oninput="STATE.criteriosCache[${i}].escalaMax = Number(this.value)">
+        </div>
+        <button type="button" class="remover-linha" onclick="removerCriterio(${i})">✕</button>
+      </div>
+    `).join('') || '<p style="color:var(--fpbf-muted); font-size:13px;">Nenhum critério ainda. Adicione o primeiro abaixo.</p>';
+  }
+
+  desenhar();
+
+  document.getElementById('btn-add-criterio').onclick = function() {
+    STATE.criteriosCache.push({ nome: '', descricao: '', escalaMax: 10 });
+    desenhar();
+  };
+
+  window.removerCriterio = function(i) {
+    STATE.criteriosCache.splice(i, 1);
+    desenhar();
+  };
+}
+
+document.getElementById('btn-salvar-criterios').addEventListener('click', async function() {
+
+  limparMensagem('criterios-mensagem');
+
+  const validos = STATE.criteriosCache.filter(c => c.nome && c.nome.trim());
+
+  try {
+    const resposta = await chamar('salvarCriterios', { criterios: validos });
+    if (!resposta || !resposta.sucesso) throw new Error((resposta && resposta.erro) || 'Não foi possível salvar os critérios.');
+    // Recarrega do servidor para obter os IDs definitivos e garantir que a própria
+    // comissão já esteja vendo exatamente a mesma configuração dos avaliadores.
+    const atualizados = await chamar('listarCriterios');
+    STATE.criteriosCache = (atualizados && atualizados.criterios) || [];
+    renderizarEditorCriterios();
+    mostrarMensagem('criterios-mensagem', 'sucesso', 'Critérios salvos e publicados para os(as) avaliadores(as)!');
+  } catch (erro) {
+    mostrarMensagem('criterios-mensagem', 'erro', erro.message);
+  }
+});
+
+
+// =============================================================
+// CONFIGURAÇÕES (comissão)
+// =============================================================
+
+async function carregarConfiguracoes() {
+  try {
+    const resposta = await chamar('obterConfiguracoes');
+    if (!resposta.sucesso) return;
+
+    document.getElementById('config-quem-notifica').value = resposta.config.quemNotificaAutor;
+    document.getElementById('config-multiplos-avaliadores').checked = resposta.config.permitirMultiplosAvaliadores === 'true';
+
+  } catch (erro) { console.error(erro); }
+}
+
+document.getElementById('btn-salvar-config').addEventListener('click', async function() {
+
+  limparMensagem('config-mensagem');
+
+  const config = {
+    quemNotificaAutor: document.getElementById('config-quem-notifica').value,
+    permitirMultiplosAvaliadores: document.getElementById('config-multiplos-avaliadores').checked ? 'true' : 'false'
+  };
+
+  try {
+    const resposta = await chamar('salvarConfiguracoes', { config });
+    if (!resposta || !resposta.sucesso) throw new Error((resposta && resposta.erro) || 'Não foi possível salvar as configurações.');
+    STATE.fluxo = Object.assign({}, resposta.config || config);
+    try { await sincronizarFluxoAvaliacao(); } catch (e) {}
+    // Remove qualquer cache legado para impedir que outra regra antiga seja reaproveitada.
+    try { localStorage.removeItem('fpbf_avalia_cache_v2'); } catch (e) {}
+    mostrarMensagem('config-mensagem', 'sucesso', 'Configurações salvas e publicadas! Novos acessos de avaliadores(as) usarão esta regra.');
+  } catch (erro) {
+    mostrarMensagem('config-mensagem', 'erro', erro.message);
+  }
+});
+
+
+// =============================================================
+// INICIALIZAÇÃO
+// =============================================================
+
+(function iniciar() {
+  if (carregarSessao()) {
+    mostrarApp();
+  }
+})();
+
+</script>
+</body>
+</html>
